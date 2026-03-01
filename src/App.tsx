@@ -8,11 +8,12 @@ import Signup from "./auth/Signup"
 // import Algorithms from "./algorithms/index"
 // import Home, { LoginHome } from "./Home"
 
-import Navbar from "navbar/TopNavbar"
+import Navbar from "./navbar/TopNavbar"
 import { AuthContext, AuthStatus } from "./context/AuthContext"
 // import Trading from "Trading"
-import AppContext from "context/AppContext"
-import LoginDesktopLeftNavbar from "navbar/LoginLeftNavbar"
+import AppContext from "./context/AppContext"
+import LoginDesktopLeftNavbar from "./navbar/LoginLeftNavbar"
+import SipClient from "./sip"
 // import HSLPaletteGenerator from "Colors"
 // import WebRTCChat from "./WebRTCChat"
 
@@ -98,6 +99,7 @@ export const AppRoute = ({
               <Route path="/colors" element={<HSLPaletteGenerator />} />
               <Route path="/videoCall" element={<WebRTCChat />} />
               <Route path="/webTemplates" element={<WebTemplates />} />
+              <Route path="/sipClient" element={<SipClient />} />
             </Routes>
           </Suspense>
         </div>

@@ -1,8 +1,8 @@
 import { useState } from "react"
-import { AuthStatus } from "context/AuthContext"
+import { AuthStatus } from "../context/AuthContext"
 import { IoEye, IoEyeOff } from "react-icons/io5"
 import { useNavigate } from "react-router"
-import { useLogin } from "hooks/auth"
+import { useLogin } from "../hooks/auth"
 
 function Login({ authContext }: { authContext: any }) {
   const navigate = useNavigate()

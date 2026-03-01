@@ -28,6 +28,7 @@ export default [
       "react/prop-types": "off",
       "@typescript-eslint/no-require-imports": "off",
       "@typescript-eslint/no-explicit-any": "off",
+      "import/no-unresolved": ["error", { ignore: ["\\.css$"] }],
     },
   },
   { ignores: ["dist/"] },

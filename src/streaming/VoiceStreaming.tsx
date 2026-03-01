@@ -1,5 +1,5 @@
-import { useWebSocket } from "hooks/socket"
-import { useMicrophone } from "hooks/microphone"
+import { useWebSocket } from "../hooks/socket"
+import { useMicrophone } from "../hooks/microphone"
 import { useState } from "react"
 import { Button, Input } from "loony-ui"
 

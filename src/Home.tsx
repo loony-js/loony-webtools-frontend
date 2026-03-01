@@ -1,4 +1,4 @@
-import DesktopLeftNavbar from "navbar/HomeLeftNavbar"
+import DesktopLeftNavbar from "./navbar/HomeLeftNavbar"
 import { BlogPostCard } from "loony-ui"
 import { useNavigate } from "react-router"
 
@@ -45,6 +45,12 @@ const cards = [
     title: "Web Templates",
     route: "webTemplates",
     description: "Web Teamplates",
+  },
+  {
+    id: 7,
+    title: "SIP Client",
+    route: "sipClient",
+    description: "SIP Client for VoIP communication",
   },
 ]
 export default function Home({ appContext, mobileNavOpen }: any) {

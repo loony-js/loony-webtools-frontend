@@ -1,4 +1,4 @@
-import { login, signup } from "api"
+import { login, signup } from "../api"
 import { useState } from "react"
 
 export const useLogin = () => {

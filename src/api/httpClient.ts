@@ -1,14 +1,22 @@
 import axios from "axios"
 
+const { HTTPS_AUTH_URL, HTTP_AUTH_URL, HTTPS_API_URL, HTTP_API_URL, HTTPS } =
+  process.env
+
+const authApiBaseUrl = HTTPS === "true" ? HTTPS_AUTH_URL : HTTP_AUTH_URL
+const apiBaseUrl = HTTPS === "true" ? HTTPS_API_URL : HTTP_API_URL
+
+console.log(authApiBaseUrl, apiBaseUrl)
+
 const authHttpClient = axios.create({
-  baseURL: process.env.AUTH_URL,
+  baseURL: authApiBaseUrl,
   timeout: 10000,
   headers: { "Content-Type": "application/json" },
   withCredentials: true,
 })
 
 const apiHttpClient = axios.create({
-  baseURL: process.env.AEGIS_URL,
+  baseURL: apiBaseUrl,
   timeout: 10000,
   headers: { "Content-Type": "application/json" },
   withCredentials: true,

@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { IoEye, IoEyeOff } from "react-icons/io5"
-import { useSignup } from "hooks/auth"
+import { useSignup } from "../hooks/auth"
 import { useNavigate } from "react-router"
 
 const Signup = () => {
