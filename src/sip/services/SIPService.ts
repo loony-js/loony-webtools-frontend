@@ -8,6 +8,7 @@ export type SIPServiceEvents = {
   onStateChange: (state: CallState, session?: CallSession) => void
   onError: (error: string) => void
   onIncomingCall: (session: CallSession) => void
+  onIncomingAudio: (audio: any) => void
 }
 
 export class SIPService {
@@ -101,7 +102,7 @@ export class SIPService {
           remoteIdentity: session.remote_identity.uri.toString(),
           remoteDisplayName: session.remote_identity.display_name,
           state: CallState.INCOMING_CALL,
-          isMuted: false,
+          isMuted: true,
           isOnHold: false,
         }
 
@@ -111,6 +112,10 @@ export class SIPService {
           this.callSession,
         )
       }
+
+      session.connection.addEventListener("track", (e: RTCTrackEvent) => {
+        this.eventHandlers.onIncomingAudio(e.streams[0])
+      })
     })
   }
 
@@ -208,7 +213,6 @@ export class SIPService {
       sessionTimersExpires: 120,
     }
 
-    console.log(target, options)
     try {
       const session = this.ua.call(target, options)
       this.currentSession = session
@@ -218,7 +222,7 @@ export class SIPService {
         id: uuidv4(),
         remoteIdentity: target,
         state: CallState.CALL_INITIATED,
-        isMuted: false,
+        isMuted: true,
         isOnHold: false,
       }
 
@@ -260,18 +264,25 @@ export class SIPService {
       senders.forEach((sender) => {
         if (sender.track?.kind === "audio") {
           sender.track.enabled = false
+          // sender.replaceTrack(null)
+          console.log(sender.track.enabled, "trackenabled")
         }
       })
       this.updateCallSession({ isMuted: true })
     }
   }
 
-  public unmute(): void {
+  public async unmute() {
     if (this.currentSession?.connection) {
       const senders = this.currentSession.connection.getSenders()
+      // const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
+      // const audioTrack = stream.getAudioTracks()[0]
+
       senders.forEach((sender) => {
         if (sender.track?.kind === "audio") {
           sender.track.enabled = true
+          // sender.replaceTrack(audioTrack)
+          console.log(sender.track.enabled, "trackenabled")
         }
       })
       this.updateCallSession({ isMuted: false })

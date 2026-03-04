@@ -1,13 +1,12 @@
 import React, { useState } from "react"
 import { useSoftphone } from "../../context/SoftPhoneContext"
 import { CallState } from "../types/softphone"
-import "../sip.css"
 
 export const LoginForm: React.FC = () => {
   const { initialize, callState, error } = useSoftphone()
   const [config, setConfig] = useState({
-    websocketUrl: "ws://10.189.194.48:8088/ws",
-    sipUri: "sip:1000@10.189.194.48",
+    websocketUrl: "ws://10.46.25.48:8088/ws",
+    sipUri: "sip:1000@10.46.25.48",
     password: "password",
     displayName: "1000",
   })

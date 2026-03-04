@@ -69,39 +69,57 @@ export const SoftphoneProvider: React.FC<{ children: React.ReactNode }> = ({
   })
 
   const sipServiceRef = useRef<SIPService | null>(null)
+  const audioRef = useRef<HTMLAudioElement | null>(null)
 
   // Initialize SIP service
   const initialize = useCallback(
     async (config: SoftphoneConfig): Promise<void> => {
-      dispatch({ type: "CLEAR_ERROR" })
+      if (audioRef.current) {
+        dispatch({ type: "CLEAR_ERROR" })
 
-      const sipService = new SIPService({
-        onStateChange: (newState: CallState, session?: CallSession) => {
-          console.log(newState)
-          dispatch({ type: "SET_STATE", payload: { state: newState, session } })
-        },
-        onError: (error: string) => {
-          console.log(error)
-          dispatch({ type: "SET_ERROR", payload: error })
-        },
-        onIncomingCall: (session: CallSession) => {
-          // Handle incoming call notification
-          if (
-            "Notification" in window &&
-            Notification.permission === "granted"
-          ) {
-            new Notification("Incoming Call", {
-              body: `Call from: ${session.remoteDisplayName || session.remoteIdentity}`,
-              icon: "/phone-icon.png",
+        const sipService = new SIPService({
+          onStateChange: (newState: CallState, session?: CallSession) => {
+            console.log(newState, session)
+            dispatch({
+              type: "SET_STATE",
+              payload: { state: newState, session },
             })
-          }
-        },
-      })
+          },
+          onError: (error: string) => {
+            console.log(error)
+            dispatch({ type: "SET_ERROR", payload: error })
+          },
+          onIncomingCall: (session: CallSession) => {
+            // Handle incoming call notification
+            if (
+              "Notification" in window &&
+              Notification.permission === "granted"
+            ) {
+              new Notification("Incoming Call", {
+                body: `Call from: ${session.remoteDisplayName || session.remoteIdentity}`,
+                icon: "/phone-icon.png",
+              })
+            }
+          },
+          onIncomingAudio: (audio: any) => {
+            if (audioRef.current) {
+              console.log(audio.getTracks())
+              console.log(audio.getAudioTracks())
+              console.log(audio, "On incoming audio")
+              console.log(audioRef, "audioRef")
+              audioRef.current.srcObject = audio
+              audioRef.current
+                .play()
+                .catch((err) => console.log("Autoplay blocked:", err))
+            }
+          },
+        })
 
-      sipServiceRef.current = sipService
-      await sipService.initialize(config)
+        sipServiceRef.current = sipService
+        await sipService.initialize(config)
+      }
     },
-    [],
+    [audioRef.current],
   )
 
   // Register
@@ -174,9 +192,9 @@ export const SoftphoneProvider: React.FC<{ children: React.ReactNode }> = ({
     sendDTMF,
     transferCall,
   }
-
   return (
     <SoftphoneContext.Provider value={value}>
+      <audio ref={audioRef} autoPlay playsInline />
       {children}
     </SoftphoneContext.Provider>
   )

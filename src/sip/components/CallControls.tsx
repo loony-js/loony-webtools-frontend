@@ -1,7 +1,6 @@
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
 import { useSoftphone } from "../../context/SoftPhoneContext"
 import { CallState } from "../types/softphone"
-import "../sip.css"
 
 export const CallControls: React.FC = () => {
   const {
