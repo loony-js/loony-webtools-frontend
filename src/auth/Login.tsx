@@ -53,8 +53,10 @@ function Login({ authContext }: { authContext: any }) {
   return (
     <div className="flex-1 min-h-screen ml-64 bg-stone-50 dark:bg-[#212121] pt-16">
       <div className="w-[45%] mx-auto">
-        <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-lg">
-          <h2 className="text-2xl font-semibold mb-6 text-gray-800">Login</h2>
+        <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-lg dark:bg-zinc-900">
+          <h2 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-white">
+            Login
+          </h2>
           <form onSubmit={handleSubmit} className="space-y-4" autoComplete="on">
             {/* Username / Email Input */}
             <div>
@@ -64,7 +66,7 @@ function Login({ authContext }: { authContext: any }) {
                 name="username"
                 value={formData.username}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-[#4d4d4d] rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 border border-[#4d4d4d] rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-white"
                 required
                 autoComplete="username"
               />
@@ -78,7 +80,7 @@ function Login({ authContext }: { authContext: any }) {
                   type={state.showPassword ? "text" : "password"}
                   value={formData.password}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-[#4d4d4d] rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2 border border-[#4d4d4d] rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-white"
                   autoComplete="password"
                   required
                 />

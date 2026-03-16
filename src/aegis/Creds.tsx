@@ -1,6 +1,6 @@
 import { useCallback, useContext, useEffect } from "react"
 import { getAllCredentialsApi } from "../api/index"
-import { AuthContext } from "context/AuthContext"
+import { AuthContext } from "../context/AuthContext"
 import { ChevronRight, Globe, Plus } from "lucide-react"
 import { Button } from "loony-ui"
 

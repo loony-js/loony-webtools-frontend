@@ -1,1 +1,81 @@
 @import "tailwindcss";
+
+/* Theme tokens (Tailwind v4 way) */
+@theme {
+  --color-loony-dark: #0d1117;
+  --color-loony-darker: #010409;
+  --color-loony-border: #30363d;
+  --color-loony-primary: #238636;
+  --color-loony-primaryHover: #2ea043;
+}
+
+/* Base styles */
+@layer base {
+  body {
+    @apply bg-loony-dark text-gray-200;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-loony-darker;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-loony-border rounded;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-600;
+  }
+}
+
+/* Components */
+@layer components {
+  .btn-primary {
+    @apply bg-loony-primary hover:bg-loony-primaryHover text-white px-4 py-2 rounded-md transition-colors;
+  }
+
+  .btn-secondary {
+    @apply border border-loony-border hover:bg-gray-800 px-4 py-2 rounded-md transition-colors;
+  }
+
+  .input-loony {
+    @apply bg-gray-900 border border-loony-border rounded-md px-3 py-2 focus:outline-none focus:border-blue-500 text-gray-200;
+  }
+}
+
+/* Markdown styles */
+.prose {
+  @apply text-gray-200;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  @apply text-white;
+}
+
+.prose code {
+  @apply bg-gray-800 text-gray-200 px-1 py-0.5 rounded;
+}
+
+.prose pre {
+  @apply bg-gray-800 border border-loony-border;
+}
+
+.prose a {
+  @apply text-blue-400 no-underline hover:underline;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-loony-border text-gray-400;
+}
+
+.prose hr {
+  @apply border-loony-border;
+}

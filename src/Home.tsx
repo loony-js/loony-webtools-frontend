@@ -61,7 +61,7 @@ export default function Home({ appContext, mobileNavOpen }: any) {
         appContext={appContext}
         mobileNavOpen={mobileNavOpen}
       />
-      <div className="ml-72 p-4 flex-1 bg-stone-50 dark:bg-[#212121] overflow-y-auto mt-16">
+      <div className="ml-72 p-4 flex-1 bg-stone-50 dark:bg-[#2d2d2d] overflow-y-auto mt-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
           {cards.map((card) => {
             return (

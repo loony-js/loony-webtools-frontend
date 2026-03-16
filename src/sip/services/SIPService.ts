@@ -44,6 +44,7 @@ export class SIPService {
         session_timers: true,
         session_expires: 120,
         use_preloaded_route: false,
+        ice_servers: [{ urls: "stun:stun.l.google.com:19302" }],
       }
 
       // Add ICE servers if provided
@@ -102,7 +103,7 @@ export class SIPService {
           remoteIdentity: session.remote_identity.uri.toString(),
           remoteDisplayName: session.remote_identity.display_name,
           state: CallState.INCOMING_CALL,
-          isMuted: true,
+          isMuted: false,
           isOnHold: false,
         }
 
@@ -222,7 +223,7 @@ export class SIPService {
         id: uuidv4(),
         remoteIdentity: target,
         state: CallState.CALL_INITIATED,
-        isMuted: true,
+        isMuted: false,
         isOnHold: false,
       }
 
