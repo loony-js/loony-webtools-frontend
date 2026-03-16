@@ -2,15 +2,15 @@
 
 /* Theme tokens (Tailwind v4 way) */
 @theme {
-  --color-loony-dark: #0d1117;
-  --color-loony-darker: #010409;
+  --color-loony-dark: #212121;
+  --color-loony-darker: #131313;
   --color-loony-border: #30363d;
   --color-loony-primary: #238636;
   --color-loony-primaryHover: #2ea043;
 }
 
 /* Base styles */
-@layer base {
+/* @layer base {
   body {
     @apply bg-loony-dark text-gray-200;
   }
@@ -31,10 +31,10 @@
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-gray-600;
   }
-}
+} */
 
 /* Components */
-@layer components {
+/* @layer components {
   .btn-primary {
     @apply bg-loony-primary hover:bg-loony-primaryHover text-white px-4 py-2 rounded-md transition-colors;
   }
@@ -46,10 +46,10 @@
   .input-loony {
     @apply bg-gray-900 border border-loony-border rounded-md px-3 py-2 focus:outline-none focus:border-blue-500 text-gray-200;
   }
-}
+} */
 
 /* Markdown styles */
-.prose {
+/* .prose {
   @apply text-gray-200;
 }
 
@@ -78,4 +78,4 @@
 
 .prose hr {
   @apply border-loony-border;
-}
+} */

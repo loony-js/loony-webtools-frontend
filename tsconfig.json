@@ -39,6 +39,6 @@
       "loony-ui/*": ["./packages/loony-ui/src/*"]
     }
   },
-  "include": ["src"],
+  "include": ["src/**/*", "packages/**/*"],
   "exclude": ["node_modules"]
 }

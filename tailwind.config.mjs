@@ -3,8 +3,8 @@ export default {
     extend: {
       colors: {
         loony: {
-          dark: "#0d1117",
-          darker: "#010409",
+          dark: "#212121",
+          darker: "#131313",
           border: "#30363d",
           primary: "#238636",
           primaryHover: "#2ea043",
