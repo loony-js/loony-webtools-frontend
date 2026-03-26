@@ -4,7 +4,6 @@ import { LoginForm } from "./components/Login"
 import { CallControls } from "./components/CallControls"
 import { CallState } from "./types/softphone"
 import { SoftphoneProvider } from "../context/SoftPhoneContext"
-import "./sip.css"
 
 function Softphone() {
   const { callState, error } = useSoftphone()
