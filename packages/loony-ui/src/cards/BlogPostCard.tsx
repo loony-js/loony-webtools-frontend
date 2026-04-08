@@ -14,7 +14,7 @@ export const BlogPostCard = ({
       className="rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 text-neutral-900 dark:text-neutral-300"
       onClick={navigate}
     >
-      <div className="relative w-full h-44 bg-gray-100 dark:bg-neutral-800 flex items-center justify-center">
+      <div className="relative w-full h-44 bg-cardTop flex items-center justify-center">
         {image ? (
           <>
             <img
@@ -32,7 +32,7 @@ export const BlogPostCard = ({
           </h3>
         )}
       </div>
-      <div className="flex p-4 bg-neutral-100 dark:bg-[#2e2e2e]">
+      <div className="flex p-4 bg-cardTop">
         <div className="w-10 h-10 mr-2 rounded-full bg-gray-200 flex items-center justify-center">
           <User className="w-5 h-5 text-neutral-900" />
         </div>

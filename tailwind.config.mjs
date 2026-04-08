@@ -3,8 +3,8 @@ export default {
     extend: {
       colors: {
         navbar: "#131313",
-        body: "#0D1117",
-        cardTop: "#262626",
+        body: "#010409",
+        cardTop: "#0D1117",
         cardBot: "#2e2e2e",
         btnGreen: "#29903B",
       },

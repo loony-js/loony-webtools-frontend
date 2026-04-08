@@ -3,9 +3,9 @@
 /* Theme tokens (Tailwind v4 way) */
 @theme {
   --color-navbar: #131313;
-  --color-body: #0d1117;
+  --color-body: #010409;
   --color-body-dark: #1a1a1a;
-  --color-cardTop: #262626;
+  --color-cardTop: #0d1117;
   --color-cardBot: #303030;
   --color-btnGreen: #29903b;
   --color-btnGreenDark: #258134;

@@ -21,7 +21,7 @@ export const LoginForm: React.FC = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[var(--color-loony-darker)] p-4">
-      <div className="w-full max-w-md bg-[var(--color-loony-dark)] border border-[var(--color-loony-border)] rounded-xl shadow-lg p-6 space-y-6">
+      <div className="w-full max-w-md bg-[var(--color-loony-dark)] border border-[#4d4d4d] rounded-xl shadow-lg p-6 space-y-6">
         <h2 className="text-xl font-semibold text-white text-center">
           SIP Phone Login
         </h2>
@@ -35,9 +35,7 @@ export const LoginForm: React.FC = () => {
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* WebSocket URL */}
           <div>
-            <label className="block text-sm text-gray-400 mb-1">
-              WebSocket URL
-            </label>
+            <label className="block text-sm mb-1">WebSocket URL</label>
             <input
               type="text"
               value={config.websocketUrl}
@@ -47,13 +45,13 @@ export const LoginForm: React.FC = () => {
               placeholder="wss://server:7443"
               disabled={isConnecting}
               required
-              className="w-full px-3 py-2 rounded-md bg-[var(--color-loony-darker)] border border-[var(--color-loony-border)] text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--color-loony-primary)] disabled:opacity-60"
+              className="w-full px-3 py-2 rounded-md bg-[var(--color-loony-darker)] border border-[#4d4d4d] text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--color-loony-primary)] disabled:opacity-60"
             />
           </div>
 
           {/* SIP URI */}
           <div>
-            <label className="block text-sm text-gray-400 mb-1">SIP URI</label>
+            <label className="block text-sm mb-1">SIP URI</label>
             <input
               type="text"
               value={config.sipUri}
@@ -61,13 +59,13 @@ export const LoginForm: React.FC = () => {
               placeholder="sip:user@domain"
               disabled={isConnecting}
               required
-              className="w-full px-3 py-2 rounded-md bg-[var(--color-loony-darker)] border border-[var(--color-loony-border)] text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--color-loony-primary)] disabled:opacity-60"
+              className="w-full px-3 py-2 rounded-md bg-[var(--color-loony-darker)] border border-[#4d4d4d] text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--color-loony-primary)] disabled:opacity-60"
             />
           </div>
 
           {/* Password */}
           <div>
-            <label className="block text-sm text-gray-400 mb-1">Password</label>
+            <label className="block text-sm mb-1">Password</label>
             <input
               type="password"
               value={config.password}
@@ -76,13 +74,13 @@ export const LoginForm: React.FC = () => {
               }
               disabled={isConnecting}
               required
-              className="w-full px-3 py-2 rounded-md bg-[var(--color-loony-darker)] border border-[var(--color-loony-border)] text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--color-loony-primary)] disabled:opacity-60"
+              className="w-full px-3 py-2 rounded-md bg-[var(--color-loony-darker)] border border-[#4d4d4d] text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--color-loony-primary)] disabled:opacity-60"
             />
           </div>
 
           {/* Display Name */}
           <div>
-            <label className="block text-sm text-gray-400 mb-1">
+            <label className="block text-sm mb-1">
               Display Name (optional)
             </label>
             <input
@@ -92,7 +90,7 @@ export const LoginForm: React.FC = () => {
                 setConfig({ ...config, displayName: e.target.value })
               }
               disabled={isConnecting}
-              className="w-full px-3 py-2 rounded-md bg-[var(--color-loony-darker)] border border-[var(--color-loony-border)] text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--color-loony-primary)] disabled:opacity-60"
+              className="w-full px-3 py-2 rounded-md bg-[var(--color-loony-darker)] border border-[#4d4d4d] text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--color-loony-primary)] disabled:opacity-60"
             />
           </div>
 
@@ -100,13 +98,13 @@ export const LoginForm: React.FC = () => {
           <button
             type="submit"
             disabled={isConnecting}
-            className="w-full py-2.5 rounded-md bg-[var(--color-loony-primary)] text-white font-medium hover:bg-[var(--color-loony-primaryHover)] transition disabled:opacity-60 disabled:cursor-not-allowed"
+            className="w-full py-2.5 rounded-md dark:bg-btnGreenDark text-white font-medium hover:bg-btnGreen transition disabled:opacity-60 disabled:cursor-not-allowed"
           >
             {isConnecting ? "Connecting..." : "Login"}
           </button>
 
           {/* Status */}
-          <div className="text-center text-sm text-gray-400">
+          <div className="text-center text-sm">
             Status:{" "}
             <span
               className={`font-medium ${

@@ -38,7 +38,7 @@ export const CallControls: React.FC = () => {
   }
 
   return (
-    <div className="w-full max-w-md mx-auto bg-[var(--color-loony-dark)] border border-[var(--color-loony-border)] rounded-xl p-5 space-y-5">
+    <div className="w-full max-w-md mx-auto bg-[var(--color-loony-dark)] border border-[#4d4d4d] rounded-xl p-5 space-y-5">
       {/* Status */}
       <div className="space-y-2 text-center">
         <div className="text-sm text-gray-400">Status</div>
@@ -98,12 +98,12 @@ export const CallControls: React.FC = () => {
             onChange={(e) => setTargetNumber(e.target.value)}
             placeholder="Enter number"
             disabled={isInCall}
-            className="flex-1 px-3 py-2 rounded-md bg-[var(--color-loony-darker)] border border-[var(--color-loony-border)] text-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-loony-primary)]"
+            className="flex-1 px-3 py-2 rounded-md bg-[var(--color-loony-darker)] border border-[#4d4d4d] text-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-loony-primary)]"
           />
           <button
             onClick={() => makeCall(targetNumber)}
             disabled={!targetNumber || isInCall}
-            className="px-4 py-2 rounded-md bg-[var(--color-loony-primary)] hover:bg-[var(--color-loony-primaryHover)] text-white disabled:opacity-50"
+            className="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded text-gray-900"
           >
             Call
           </button>
@@ -115,7 +115,7 @@ export const CallControls: React.FC = () => {
         <div className="grid grid-cols-3 gap-2">
           <button
             onClick={isMuted ? unmute : mute}
-            className={`py-2 rounded-md border border-[var(--color-loony-border)] ${
+            className={`py-2 rounded-md border border-[#4d4d4d] ${
               isMuted ? "bg-yellow-500/10 text-yellow-400" : "text-gray-300"
             }`}
           >
@@ -124,7 +124,7 @@ export const CallControls: React.FC = () => {
 
           <button
             onClick={isOnHold ? unholdCall : holdCall}
-            className={`py-2 rounded-md border border-[var(--color-loony-border)] ${
+            className={`py-2 rounded-md border border-[#4d4d4d] ${
               isOnHold ? "bg-yellow-500/10 text-yellow-400" : "text-gray-300"
             }`}
           >
@@ -133,14 +133,14 @@ export const CallControls: React.FC = () => {
 
           <button
             onClick={() => setShowDialpad(!showDialpad)}
-            className="py-2 rounded-md border border-[var(--color-loony-border)] text-gray-300"
+            className="py-2 rounded-md border border-[#4d4d4d] text-gray-300"
           >
             Keypad
           </button>
 
           <button
             onClick={() => setShowTransfer(!showTransfer)}
-            className="py-2 rounded-md border border-[var(--color-loony-border)] text-gray-300 col-span-2"
+            className="py-2 rounded-md border border-[#4d4d4d] text-gray-300 col-span-2"
           >
             Transfer
           </button>
@@ -161,7 +161,7 @@ export const CallControls: React.FC = () => {
             <button
               key={k}
               onClick={() => sendDTMF(k.toString())}
-              className="py-3 rounded-md bg-[var(--color-loony-darker)] border border-[var(--color-loony-border)] text-gray-200 hover:bg-gray-800"
+              className="py-3 rounded-md bg-[var(--color-loony-darker)] border border-[#4d4d4d] text-gray-200 hover:bg-gray-800"
             >
               {k}
             </button>
@@ -176,7 +176,7 @@ export const CallControls: React.FC = () => {
             value={transferTarget}
             onChange={(e) => setTransferTarget(e.target.value)}
             placeholder="Transfer target"
-            className="w-full px-3 py-2 rounded-md bg-[var(--color-loony-darker)] border border-[var(--color-loony-border)] text-gray-200"
+            className="w-full px-3 py-2 rounded-md bg-[var(--color-loony-darker)] border border-[#4d4d4d] text-gray-200"
           />
           <div className="flex gap-2">
             <button
@@ -192,7 +192,7 @@ export const CallControls: React.FC = () => {
             </button>
             <button
               onClick={() => setShowTransfer(false)}
-              className="flex-1 py-2 border border-[var(--color-loony-border)] text-gray-300 rounded-md"
+              className="flex-1 py-2 border border-[#4d4d4d] text-gray-300 rounded-md"
             >
               Cancel
             </button>
@@ -204,7 +204,7 @@ export const CallControls: React.FC = () => {
       {callState === CallState.REGISTERED && (
         <button
           onClick={unregister}
-          className="w-full py-2 text-sm text-gray-400 hover:text-white"
+          className="w-full py-2 text-sm text-gray-400 hover:text-white dark:bg-btnGreenDark hover:bg-btnGreen rounded text-white"
         >
           Logout
         </button>

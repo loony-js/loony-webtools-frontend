@@ -90,7 +90,7 @@ const TopNavbar = ({
     //   </div>
 
     //   {/* Menu */}
-    //   <div className="flex-1 flex items-center justify-end bg-gray-50 dark:bg-[#212121] text-black dark:text-white hidden md:flex md:items-center pr-10 py-2 px-4">
+    //   <div className="flex-1 flex items-center justify-end bg-gray-50 dark:bg-body text-black dark:text-white hidden md:flex md:items-center pr-10 py-2 px-4">
     //     {authContext.status === AuthStatus.AUTHORIZED ? (
     //       <AuthNavRight logoutUser={logoutUser} />
     //     ) : (

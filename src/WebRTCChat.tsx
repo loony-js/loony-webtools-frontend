@@ -87,7 +87,7 @@ export default function WebRTCChat() {
   }
 
   return (
-    <main className="flex-1 min-h-screen ml-64 bg-stone-50 dark:bg-[#212121] text-white pt-16">
+    <main className="flex-1 min-h-screen bg-stone-50 dark:bg-body text-white pt-16">
       <div className="flex flex-col items-center gap-4 p-6">
         <h2 className="text-2xl font-semibold mb-2">🎥 WebRTC Chat</h2>
 
