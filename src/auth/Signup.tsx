@@ -51,7 +51,7 @@ const Signup = () => {
   }
 
   return (
-    <div className="flex-1 min-h-screen bg-body pt-16">
+    <div className="flex-1 min-h-screen bg-layout-body pt-16">
       <div className="w-[45%] mx-auto">
         <div className="max-w-md mx-auto mt-10 p-6 rounded-lg border border-[#4d4d4d]">
           <div className="text-center mt-4 mb-8">
@@ -168,7 +168,7 @@ const Signup = () => {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full bg-btnGreenDark py-2 rounded-md hover:bg-btnGreen transition"
+              className="w-full bg-button-green-DEFAULT py-2 rounded-md hover:bg-button-green-hover transition"
             >
               Register
             </button>

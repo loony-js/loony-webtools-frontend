@@ -2,86 +2,52 @@
 
 /* Theme tokens (Tailwind v4 way) */
 @theme {
-  --color-navbar: #131313;
-  --color-body: #010409;
-  --color-body-dark: #1a1a1a;
-  --color-cardTop: #0d1117;
-  --color-cardBot: #303030;
-  --color-btnGreen: #29903b;
-  --color-btnGreenDark: #258134;
+  /* layout */
+  --color-layout-navbar: #131313;
+  --color-layout-body: #010409;
+  --color-layout-body-dark: #1a1a1a;
+  --color-layout-border: #30363d;
+  --color-layout-overlay: rgba(0, 0, 0, 0.6);
+
+  /* surface */
+  --color-surface-base: #010409;
+  --color-surface-muted: #161b22;
+  --color-card-top: #0d1117;
+  --color-card-bottom: #131313;
+
+  /* brand */
+  --color-brand-primary: #1f6feb;
+  --color-brand-primary-hover: #388bfd;
+  --color-brand-primary-subtle: #0a3069;
+  --color-brand-secondary: #8b949e;
+  --color-brand-accent: #f78166;
+
+  /* state */
+  --color-state-success: #238636;
+  --color-state-success-subtle: #0f5132;
+  --color-state-warning: #d29922;
+  --color-state-warning-subtle: #664d03;
+  --color-state-danger: #da3633;
+  --color-state-danger-subtle: #842029;
+  --color-state-info: #58a6ff;
+  --color-state-info-subtle: #084298;
+
+  /* button */
+  --color-button-green-DEFAULT: #29903b;
+  --color-button-green-hover: #258134;
+  --color-button-green-active: #1f6f2e;
+
+  /* text */
+  --color-text-primary: #c9d1d9;
+  --color-text-secondary: #8b949e;
+  --color-text-muted: #6e7681;
+  --color-text-inverse: #010409;
 }
 
 /* body {
-  background-color: #258134;
-} */
-
-/* Base styles */
-/* @layer base {
-  body {
-    @apply bg-loony-dark text-gray-200;
-  }
-
-  ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
-
-  ::-webkit-scrollbar-track {
-    @apply bg-loony-darker;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    @apply bg-loony-border rounded;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-gray-600;
-  }
-} */
-
-/* Components */
-/* @layer components {
-  .btn-primary {
-    @apply bg-loony-primary hover:bg-loony-primaryHover text-white px-4 py-2 rounded-md transition-colors;
-  }
-
-  .btn-secondary {
-    @apply border border-loony-border hover:bg-gray-800 px-4 py-2 rounded-md transition-colors;
-  }
-
-  .input-loony {
-    @apply bg-gray-900 border border-loony-border rounded-md px-3 py-2 focus:outline-none focus:border-blue-500 text-gray-200;
-  }
-} */
-
-/* Markdown styles */
-/* .prose {
-  @apply text-gray-200;
-}
-
-.prose h1,
-.prose h2,
-.prose h3,
-.prose h4 {
-  @apply text-white;
-}
-
-.prose code {
-  @apply bg-gray-800 text-gray-200 px-1 py-0.5 rounded;
-}
-
-.prose pre {
-  @apply bg-gray-800 border border-loony-border;
-}
-
-.prose a {
-  @apply text-blue-400 no-underline hover:underline;
-}
-
-.prose blockquote {
-  @apply border-l-4 border-loony-border text-gray-400;
-}
-
-.prose hr {
-  @apply border-loony-border;
+  navbar: "#131313",
+  body: "#010409",
+  cardTop: "#0D1117",
+  cardBot: "#2e2e2e",
+  btnGreen: "#29903B",
 } */

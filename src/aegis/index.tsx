@@ -14,7 +14,7 @@ export default function Aegis() {
   })
 
   return (
-    <main className="flex-1 min-h-screen bg-stone-50 dark:bg-body pt-16">
+    <main className="flex-1 min-h-screen bg-stone-50 dark:bg-layout-body pt-16">
       {state.activeTab === 1 && <Creds state={state} setState={setState} />}
       {state.activeTab === 2 && <Encrypt state={state} setState={setState} />}
       {state.activeTab === 3 && <Decrypt state={state} setState={setState} />}

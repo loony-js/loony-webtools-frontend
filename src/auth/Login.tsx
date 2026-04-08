@@ -93,7 +93,7 @@ function Login({ authContext }: { authContext: AuthContextType }) {
   }
 
   return (
-    <div className="flex-1 min-h-screen bg-body pt-16">
+    <div className="flex-1 min-h-screen bg-layout-body pt-16">
       <div className="flex-1 mx-auto">
         <div className="max-w-md mx-auto mt-10 p-6 rounded-lg border border-[#4d4d4d]">
           <div className="text-center mt-4 mb-8">
@@ -219,8 +219,8 @@ function Login({ authContext }: { authContext: AuthContextType }) {
                 w-full py-2 rounded-md transition font-medium
                 ${
                   isLoading
-                    ? "bg-gray-400 cursor-not-allowed"
-                    : "bg-gray-700 hover:bg-gray-800 active:bg-gray-900 dark:bg-btnGreenDark dark:hover:bg-btnGreen dark:active:bg-gray-800"
+                    ? "cursor-not-allowed"
+                    : "active:bg-gray-900 bg-button-green-DEFAULT hover:bg-button-green-hover dark:active:bg-gray-800"
                 }
                 text-white focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800
               `}

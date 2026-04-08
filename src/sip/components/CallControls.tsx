@@ -204,7 +204,7 @@ export const CallControls: React.FC = () => {
       {callState === CallState.REGISTERED && (
         <button
           onClick={unregister}
-          className="w-full py-2 text-sm text-gray-400 hover:text-white dark:bg-btnGreenDark hover:bg-btnGreen rounded text-white"
+          className="w-full py-2 text-sm text-gray-400 hover:text-white dark:bg-button-green-DEFAULT hover:bg-button-green-hover rounded text-white"
         >
           Logout
         </button>

@@ -54,7 +54,7 @@ const TopNavbar = ({
   }
 
   return (
-    <header className="bg-navbar border-b border-[#30363d] px-4 py-2 sticky top-0 z-50">
+    <header className="bg-layout-navbar border-b border-[#30363d] px-4 py-2 sticky top-0 z-50">
       <div className="flex justify-between mx-auto">
         {/* Left Section */}
         <div className="flex items-center gap-4">
@@ -72,7 +72,8 @@ const TopNavbar = ({
             to="/"
             className="text-white hover:text-[#58a6ff] transition-colors"
           >
-            <Code2 size={32} />
+            {/* <Code2 size={32} /> */}
+            Loony
           </Link>
 
           {/* Search Bar */}
