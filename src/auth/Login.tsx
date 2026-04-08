@@ -93,12 +93,12 @@ function Login({ authContext }: { authContext: AuthContextType }) {
   }
 
   return (
-    <div className="flex-1 min-h-screen ml-64 bg-loony-dark pt-16">
+    <div className="flex-1 min-h-screen bg-body pt-16">
       <div className="flex-1 mx-auto">
         <div className="max-w-md mx-auto mt-10 p-6 rounded-lg border border-[#4d4d4d]">
-          <h2 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-white">
-            Welcome Back
-          </h2>
+          <div className="text-center mt-4 mb-8">
+            <h2 className="text-3xl font-bold">Welcome Back</h2>
+          </div>
 
           <form onSubmit={handleSubmit} className="space-y-4" noValidate>
             {/* Username / Email Input */}
@@ -220,7 +220,7 @@ function Login({ authContext }: { authContext: AuthContextType }) {
                 ${
                   isLoading
                     ? "bg-gray-400 cursor-not-allowed"
-                    : "bg-gray-700 hover:bg-gray-800 active:bg-gray-900 dark:bg-gray-600 dark:hover:bg-gray-700 dark:active:bg-gray-800"
+                    : "bg-gray-700 hover:bg-gray-800 active:bg-gray-900 dark:bg-btnGreenDark dark:hover:bg-btnGreen dark:active:bg-gray-800"
                 }
                 text-white focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800
               `}
@@ -256,8 +256,8 @@ function Login({ authContext }: { authContext: AuthContextType }) {
           </form>
 
           {/* Register Link */}
-          <div className="mt-6 text-center text-sm text-gray-600 dark:text-gray-400">
-            <span>Don't have an account?</span>
+          <div className="mt-6 text-center text-sm">
+            <span className="text-gray-400">Don't have an account?</span>
             <a
               href="/register"
               className="ml-1 font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:underline"

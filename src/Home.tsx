@@ -56,13 +56,13 @@ const cards = [
 export default function Home({ appContext, mobileNavOpen }: any) {
   const navigate = useNavigate()
   return (
-    <>
+    <div className="flex flex-row flex-1">
       <DesktopLeftNavbar
         appContext={appContext}
         mobileNavOpen={mobileNavOpen}
       />
-      <div className="bg-loony-dark ml-72 p-4 flex-1 overflow-y-auto mt-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="bg-loony-dark p-4 flex-1 overflow-y-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
           {cards.map((card) => {
             return (
               <BlogPostCard
@@ -75,6 +75,6 @@ export default function Home({ appContext, mobileNavOpen }: any) {
           })}
         </div>
       </div>
-    </>
+    </div>
   )
 }

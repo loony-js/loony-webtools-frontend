@@ -27,7 +27,7 @@
     "loony-utils": "0.1.0",
     "loony-web-api": "0.1.0",
     "loony-web-audio": "0.1.0",
-    "lucide-react": "0.552.0",
+    "lucide-react": "^0.552.0",
     "pg": "8.16.3",
     "react": "19.2.0",
     "react-dom": "19.2.0",

@@ -71,7 +71,7 @@ export const AppRoute = ({
           setMobileNavOpen={() => {}}
         />
         <div className="flex flex-1 overflow-hidden h-screen dark:bg-[#212121]">
-          <LoginDesktopLeftNavbar />
+          {/* <LoginDesktopLeftNavbar /> */}
           <Suspense
             fallback={
               <div className="ml-72 p-4 flex-1 bg-stone-50 dark:bg-[#212121] overflow-y-auto mt-16">
@@ -115,10 +115,10 @@ export const AppRoute = ({
         setMobileNavOpen={setMobileNavOpen}
       />
       <div className="flex flex-1 overflow-hidden h-screen">
-        <LoginDesktopLeftNavbar />
+        {/* <LoginDesktopLeftNavbar /> */}
         <Routes>
-          <Route index element={<LoginHome />} />
-          <Route path="/" element={<LoginHome />} />
+          <Route index element={<Login authContext={authContext} />} />
+          <Route path="/" element={<Login authContext={authContext} />} />
           <Route path="/login" element={<Login authContext={authContext} />} />
           <Route path="/register" element={<Signup />} />
         </Routes>

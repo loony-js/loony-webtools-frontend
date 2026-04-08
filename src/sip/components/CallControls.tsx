@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react"
+import React, { useState } from "react"
 import { useSoftphone } from "../../context/SoftPhoneContext"
 import { CallState } from "../types/softphone"
 
@@ -24,7 +24,6 @@ export const CallControls: React.FC = () => {
   const [showTransfer, setShowTransfer] = useState(false)
 
   const isInCall = callState === CallState.CALL_CONNECTED
-  const isRinging = callState === CallState.CALL_RINGING
   const hasIncomingCall = callState === CallState.INCOMING_CALL
   const isOnHold = callState === CallState.CALL_ON_HOLD
   const isMuted = currentSession?.isMuted || false
@@ -33,144 +32,180 @@ export const CallControls: React.FC = () => {
     if (!seconds) return "00:00"
     const mins = Math.floor(seconds / 60)
     const secs = seconds % 60
-    return `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`
-  }
-
-  const handleDTMF = (tone: string) => {
-    sendDTMF(tone)
-  }
-
-  const handleTransfer = () => {
-    if (transferTarget) {
-      transferCall(transferTarget)
-      setShowTransfer(false)
-      setTransferTarget("")
-    }
+    return `${mins.toString().padStart(2, "0")}:${secs
+      .toString()
+      .padStart(2, "0")}`
   }
 
   return (
-    <div className="softphone-call-controls">
-      {/* Status Display */}
-      <div className="call-status">
-        <div className="status-badge" data-state={callState}>
+    <div className="w-full max-w-md mx-auto bg-[var(--color-loony-dark)] border border-[var(--color-loony-border)] rounded-xl p-5 space-y-5">
+      {/* Status */}
+      <div className="space-y-2 text-center">
+        <div className="text-sm text-gray-400">Status</div>
+
+        <div
+          className={`inline-block px-3 py-1 rounded-md text-sm font-medium
+          ${
+            callState === CallState.CALL_CONNECTED
+              ? "bg-green-500/10 text-green-400"
+              : callState === CallState.INCOMING_CALL
+                ? "bg-yellow-500/10 text-yellow-400"
+                : "bg-gray-500/10 text-gray-400"
+          }`}
+        >
           {callState}
         </div>
+
         {currentSession?.remoteDisplayName && (
-          <div className="remote-party">
+          <div className="text-gray-200 text-sm">
             {currentSession.remoteDisplayName}
-            <small>{currentSession.remoteIdentity}</small>
-          </div>
-        )}
-        {currentSession?.duration !== undefined && isInCall && (
-          <div className="call-duration">
-            Duration: {formatDuration(currentSession.duration)}
-          </div>
-        )}
-      </div>
-
-      {/* Main Call Controls */}
-      <div className="control-buttons">
-        {hasIncomingCall ? (
-          <>
-            <button className="btn-answer" onClick={answerCall}>
-              Answer
-            </button>
-            <button className="btn-reject" onClick={hangup}>
-              Reject
-            </button>
-          </>
-        ) : (
-          <>
-            <div className="dial-section">
-              <input
-                type="text"
-                value={targetNumber}
-                onChange={(e) => setTargetNumber(e.target.value)}
-                placeholder="Enter number"
-                disabled={isInCall || hasIncomingCall}
-              />
-              <button
-                className="btn-call"
-                onClick={() => makeCall(targetNumber)}
-                disabled={!targetNumber || isInCall || hasIncomingCall}
-              >
-                Call
-              </button>
+            <div className="text-xs text-gray-500">
+              {currentSession.remoteIdentity}
             </div>
+          </div>
+        )}
 
-            {isInCall && (
-              <div className="active-call-controls">
-                <button
-                  className={`btn-control ${isMuted ? "active" : ""}`}
-                  onClick={isMuted ? unmute : mute}
-                >
-                  {isMuted ? "Unmute" : "Mute"}
-                </button>
-
-                <button
-                  className={`btn-control ${isOnHold ? "active" : ""}`}
-                  onClick={isOnHold ? unholdCall : holdCall}
-                >
-                  {isOnHold ? "Resume" : "Hold"}
-                </button>
-
-                <button
-                  className="btn-control"
-                  onClick={() => setShowDialpad(!showDialpad)}
-                >
-                  Keypad
-                </button>
-
-                <button
-                  className="btn-control"
-                  onClick={() => setShowTransfer(!showTransfer)}
-                >
-                  Transfer
-                </button>
-
-                <button className="btn-hangup" onClick={hangup}>
-                  Hang Up
-                </button>
-              </div>
-            )}
-          </>
+        {isInCall && (
+          <div className="text-xs text-gray-400">
+            {formatDuration(currentSession?.duration)}
+          </div>
         )}
       </div>
+
+      {/* Incoming Call */}
+      {hasIncomingCall && (
+        <div className="flex gap-3">
+          <button
+            onClick={answerCall}
+            className="flex-1 py-2 rounded-md bg-[var(--color-loony-primary)] hover:bg-[var(--color-loony-primaryHover)] text-white"
+          >
+            Answer
+          </button>
+          <button
+            onClick={hangup}
+            className="flex-1 py-2 rounded-md bg-red-600 hover:bg-red-700 text-white"
+          >
+            Reject
+          </button>
+        </div>
+      )}
+
+      {/* Dial */}
+      {!hasIncomingCall && (
+        <div className="flex gap-2">
+          <input
+            value={targetNumber}
+            onChange={(e) => setTargetNumber(e.target.value)}
+            placeholder="Enter number"
+            disabled={isInCall}
+            className="flex-1 px-3 py-2 rounded-md bg-[var(--color-loony-darker)] border border-[var(--color-loony-border)] text-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-loony-primary)]"
+          />
+          <button
+            onClick={() => makeCall(targetNumber)}
+            disabled={!targetNumber || isInCall}
+            className="px-4 py-2 rounded-md bg-[var(--color-loony-primary)] hover:bg-[var(--color-loony-primaryHover)] text-white disabled:opacity-50"
+          >
+            Call
+          </button>
+        </div>
+      )}
+
+      {/* Active Call Controls */}
+      {isInCall && (
+        <div className="grid grid-cols-3 gap-2">
+          <button
+            onClick={isMuted ? unmute : mute}
+            className={`py-2 rounded-md border border-[var(--color-loony-border)] ${
+              isMuted ? "bg-yellow-500/10 text-yellow-400" : "text-gray-300"
+            }`}
+          >
+            {isMuted ? "Unmute" : "Mute"}
+          </button>
+
+          <button
+            onClick={isOnHold ? unholdCall : holdCall}
+            className={`py-2 rounded-md border border-[var(--color-loony-border)] ${
+              isOnHold ? "bg-yellow-500/10 text-yellow-400" : "text-gray-300"
+            }`}
+          >
+            {isOnHold ? "Resume" : "Hold"}
+          </button>
+
+          <button
+            onClick={() => setShowDialpad(!showDialpad)}
+            className="py-2 rounded-md border border-[var(--color-loony-border)] text-gray-300"
+          >
+            Keypad
+          </button>
+
+          <button
+            onClick={() => setShowTransfer(!showTransfer)}
+            className="py-2 rounded-md border border-[var(--color-loony-border)] text-gray-300 col-span-2"
+          >
+            Transfer
+          </button>
+
+          <button
+            onClick={hangup}
+            className="py-2 rounded-md bg-red-600 hover:bg-red-700 text-white"
+          >
+            Hang Up
+          </button>
+        </div>
+      )}
 
       {/* Dialpad */}
       {showDialpad && isInCall && (
-        <div className="dialpad">
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, "*", 0, "#"].map((key) => (
+        <div className="grid grid-cols-3 gap-2">
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, "*", 0, "#"].map((k) => (
             <button
-              key={key}
-              className="dialpad-key"
-              onClick={() => handleDTMF(key.toString())}
+              key={k}
+              onClick={() => sendDTMF(k.toString())}
+              className="py-3 rounded-md bg-[var(--color-loony-darker)] border border-[var(--color-loony-border)] text-gray-200 hover:bg-gray-800"
             >
-              {key}
+              {k}
             </button>
           ))}
         </div>
       )}
 
-      {/* Transfer Dialog */}
+      {/* Transfer */}
       {showTransfer && isInCall && (
-        <div className="transfer-dialog">
+        <div className="space-y-2">
           <input
-            type="text"
             value={transferTarget}
             onChange={(e) => setTransferTarget(e.target.value)}
-            placeholder="Enter target number"
+            placeholder="Transfer target"
+            className="w-full px-3 py-2 rounded-md bg-[var(--color-loony-darker)] border border-[var(--color-loony-border)] text-gray-200"
           />
-          <button onClick={handleTransfer} disabled={!transferTarget}>
-            Transfer
-          </button>
-          <button onClick={() => setShowTransfer(false)}>Cancel</button>
+          <div className="flex gap-2">
+            <button
+              onClick={() => {
+                transferCall(transferTarget)
+                setShowTransfer(false)
+                setTransferTarget("")
+              }}
+              disabled={!transferTarget}
+              className="flex-1 py-2 bg-[var(--color-loony-primary)] text-white rounded-md disabled:opacity-50"
+            >
+              Confirm
+            </button>
+            <button
+              onClick={() => setShowTransfer(false)}
+              className="flex-1 py-2 border border-[var(--color-loony-border)] text-gray-300 rounded-md"
+            >
+              Cancel
+            </button>
+          </div>
         </div>
       )}
 
-      {/* Logout Button */}
+      {/* Logout */}
       {callState === CallState.REGISTERED && (
-        <button className="btn-logout" onClick={unregister}>
+        <button
+          onClick={unregister}
+          className="w-full py-2 text-sm text-gray-400 hover:text-white"
+        >
           Logout
         </button>
       )}

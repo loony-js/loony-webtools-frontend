@@ -2,12 +2,18 @@
 
 /* Theme tokens (Tailwind v4 way) */
 @theme {
-  --color-loony-dark: #212121;
-  --color-loony-darker: #131313;
-  --color-loony-border: #30363d;
-  --color-loony-primary: #238636;
-  --color-loony-primaryHover: #2ea043;
+  --color-navbar: #131313;
+  --color-body: #0d1117;
+  --color-body-dark: #1a1a1a;
+  --color-cardTop: #262626;
+  --color-cardBot: #303030;
+  --color-btnGreen: #29903b;
+  --color-btnGreenDark: #258134;
 }
+
+/* body {
+  background-color: #258134;
+} */
 
 /* Base styles */
 /* @layer base {
