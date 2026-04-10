@@ -23,7 +23,7 @@ const FakerHomePage = () => {
       {/* Top Navigation */}
       <nav className="flex items-center justify-between p-4 border-b border-neutral-800">
         <div className="flex items-center space-x-6">
-          <div className="flex items-center space-x-2 text-white text-lg font-bold">
+          <div className="flex items-center space-x-2 text-text-primary text-lg font-bold">
             {/* Faker Logo (simple text for now) */}
             <User className="w-6 h-6" />
             <span>Faker</span>
@@ -85,7 +85,7 @@ const FakerHomePage = () => {
             </a>{" "}
             {/* Placeholder for theme toggle */}
           </div>
-          <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white text-sm font-semibold">
+          <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-text-primary text-sm font-semibold">
             CB
           </div>
         </div>
@@ -103,19 +103,21 @@ const FakerHomePage = () => {
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4">
-          <h1 className="text-6xl font-extrabold text-white mb-4">Faker</h1>
+          <h1 className="text-6xl font-extrabold text-text-primary mb-4">
+            Faker
+          </h1>
           <p className="text-xl text-neutral-400 mb-8">
             Generate massive amounts of fake (but realistic) data for testing
             and development.
           </p>
           <div className="flex justify-center space-x-4">
-            <button className="bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition-colors">
+            <button className="bg-emerald-600 text-text-primary px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition-colors">
               Get Started
             </button>
-            <button className="bg-neutral-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-neutral-600 transition-colors">
+            <button className="bg-neutral-700 text-text-primary px-6 py-3 rounded-lg font-semibold hover:bg-neutral-600 transition-colors">
               Browse API
             </button>
-            <button className="bg-neutral-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-neutral-600 transition-colors flex items-center space-x-2">
+            <button className="bg-neutral-700 text-text-primary px-6 py-3 rounded-lg font-semibold hover:bg-neutral-600 transition-colors flex items-center space-x-2">
               <span>View on GitHub</span>
               <ExternalLink className="w-4 h-4" />
             </button>
@@ -128,16 +130,18 @@ const FakerHomePage = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Card 1: Person */}
           <div className="p-6 bg-neutral-800 rounded-lg shadow-lg border border-neutral-700 hover:border-neutral-600 transition-colors duration-200">
-            <User className="w-8 h-8 text-white mb-3" />
-            <h3 className="text-xl font-bold text-white mb-2">Person</h3>
+            <User className="w-8 h-8 text-text-primary mb-3" />
+            <h3 className="text-xl font-bold text-text-primary mb-2">Person</h3>
             <p className="text-neutral-400 text-sm">
               Generate Names, Genders, Bios, Job Titles, and more.
             </p>
           </div>
           {/* Card 2: Location */}
           <div className="p-6 bg-neutral-800 rounded-lg shadow-lg border border-neutral-700 hover:border-neutral-600 transition-colors duration-200">
-            <MapPin className="w-8 h-8 text-white mb-3" />
-            <h3 className="text-xl font-bold text-white mb-2">Location</h3>
+            <MapPin className="w-8 h-8 text-text-primary mb-3" />
+            <h3 className="text-xl font-bold text-text-primary mb-2">
+              Location
+            </h3>
             <p className="text-neutral-400 text-sm">
               Generate Addresses, Zip Codes, Street Names, States, and
               Countries!
@@ -145,16 +149,18 @@ const FakerHomePage = () => {
           </div>
           {/* Card 3: Date */}
           <div className="p-6 bg-neutral-800 rounded-lg shadow-lg border border-neutral-700 hover:border-neutral-600 transition-colors duration-200">
-            <Calendar className="w-8 h-8 text-white mb-3" />
-            <h3 className="text-xl font-bold text-white mb-2">Date</h3>
+            <Calendar className="w-8 h-8 text-text-primary mb-3" />
+            <h3 className="text-xl font-bold text-text-primary mb-2">Date</h3>
             <p className="text-neutral-400 text-sm">
               Past, present, future, recent, soon... whenever!
             </p>
           </div>
           {/* Card 4: Finance */}
           <div className="p-6 bg-neutral-800 rounded-lg shadow-lg border border-neutral-700 hover:border-neutral-600 transition-colors duration-200">
-            <Banknote className="w-8 h-8 text-white mb-3" />
-            <h3 className="text-xl font-bold text-white mb-2">Finance</h3>
+            <Banknote className="w-8 h-8 text-text-primary mb-3" />
+            <h3 className="text-xl font-bold text-text-primary mb-2">
+              Finance
+            </h3>
             <p className="text-neutral-400 text-sm">
               Generate stubbed out Account Details, Transactions, and Crypto
               Addresses.
@@ -162,16 +168,20 @@ const FakerHomePage = () => {
           </div>
           {/* Card 5: Commerce */}
           <div className="p-6 bg-neutral-800 rounded-lg shadow-lg border border-neutral-700 hover:border-neutral-600 transition-colors duration-200">
-            <ShoppingBag className="w-8 h-8 text-white mb-3" />
-            <h3 className="text-xl font-bold text-white mb-2">Commerce</h3>
+            <ShoppingBag className="w-8 h-8 text-text-primary mb-3" />
+            <h3 className="text-xl font-bold text-text-primary mb-2">
+              Commerce
+            </h3>
             <p className="text-neutral-400 text-sm">
               Generate prices, Product Names, Adjectives, and Descriptions.
             </p>
           </div>
           {/* Card 6: Localization */}
           <div className="p-6 bg-neutral-800 rounded-lg shadow-lg border border-neutral-700 hover:border-neutral-600 transition-colors duration-200">
-            <Languages className="w-8 h-8 text-white mb-3" />
-            <h3 className="text-xl font-bold text-white mb-2">Localization</h3>
+            <Languages className="w-8 h-8 text-text-primary mb-3" />
+            <h3 className="text-xl font-bold text-text-primary mb-2">
+              Localization
+            </h3>
             <p className="text-neutral-400 text-sm">
               Pick from over 70 locales to generate realistic looking Names,
               Addresses, and Phone Numbers.
@@ -189,7 +199,7 @@ const FakerHomePage = () => {
           your project, please consider making a one-off or recurring donation
           via OpenCollective.
         </p>
-        <button className="bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition-colors">
+        <button className="bg-emerald-600 text-text-primary px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition-colors">
           Support Faker on OpenCollective
         </button>
       </section>

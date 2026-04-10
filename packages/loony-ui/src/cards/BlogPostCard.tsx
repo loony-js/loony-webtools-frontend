@@ -22,7 +22,7 @@ export const BlogPostCard = ({
               alt="Video Thumbnail"
               className="w-full h-full object-cover"
             />
-            <span className="absolute bottom-2 right-2 bg-black bg-opacity-75 text-white text-xs px-1.5 py-0.5 rounded">
+            <span className="absolute bottom-2 right-2 bg-black bg-opacity-75 text-text-primary text-xs px-1.5 py-0.5 rounded">
               12:34
             </span>
           </>

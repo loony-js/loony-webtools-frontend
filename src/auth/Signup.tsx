@@ -53,14 +53,14 @@ const Signup = () => {
   return (
     <div className="flex-1 min-h-screen bg-layout-body pt-16">
       <div className="w-[45%] mx-auto">
-        <div className="max-w-md mx-auto mt-10 p-6 rounded-lg border border-[#30363d]">
+        <div className="max-w-md mx-auto mt-10 p-6 rounded-lg border border-layout-border">
           <div className="text-center mt-4 mb-8">
             <h2 className="text-3xl font-bold">Signup</h2>
           </div>
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Username / Email Input */}
             <div>
-              <label className="block text-sm font-medium text-white mb-1">
+              <label className="block text-sm font-medium text-text-primary mb-1">
                 Username or Email
               </label>
               <input
@@ -68,7 +68,7 @@ const Signup = () => {
                 name="username"
                 value={formData.username}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-[#30363d] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 border border-layout-border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               />
             </div>
@@ -82,7 +82,7 @@ const Signup = () => {
                 name="fname"
                 value={formData.fname}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-[#30363d] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 border border-layout-border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               />
             </div>
@@ -96,7 +96,7 @@ const Signup = () => {
                 name="lname"
                 value={formData.lname}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-[#30363d] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 border border-layout-border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               />
             </div>
@@ -110,7 +110,7 @@ const Signup = () => {
                   type={state.showPassword ? "text" : "password"}
                   value={formData.password}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-[#30363d] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2 border border-layout-border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
 
                 {/* Show eye icon only when typing */}
@@ -140,7 +140,7 @@ const Signup = () => {
                   type={state.showConfirmPassword ? "text" : "password"}
                   value={formData.confirm_password}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-[#30363d] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2 border border-layout-border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
 
                 {/* Show eye icon only when typing */}

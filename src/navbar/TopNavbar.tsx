@@ -54,7 +54,7 @@ const TopNavbar = ({
   }
 
   return (
-    <header className="bg-layout-navbar border-b border-[#30363d] px-4 py-2 sticky top-0 z-50">
+    <header className="bg-layout-navbar px-4 py-2 sticky top-0 z-50">
       <div className="flex justify-between mx-auto">
         {/* Left Section */}
         <div className="flex items-center gap-4">
@@ -70,7 +70,7 @@ const TopNavbar = ({
           {/* Logo */}
           <Link
             to="/"
-            className="text-white hover:text-[#58a6ff] transition-colors"
+            className="text-text-primary hover:text-[#58a6ff] transition-colors"
           >
             {/* <Code2 size={32} /> */}
             Webtools
@@ -88,9 +88,9 @@ const TopNavbar = ({
                 placeholder="Search or jump to..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="bg-[#0d1117] border border-[#30363d] rounded-md pl-10 pr-4 py-1.5 w-80 text-sm focus:outline-none focus:border-[#58a6ff] focus:ring-1 focus:ring-[#58a6ff] text-[#c9d1d9] placeholder-[#8b949e] transition-all"
+                className="bg-layout-navbar border border-layout-border rounded-md pl-10 pr-4 py-1.5 w-80 text-sm focus:outline-none focus:border-[#58a6ff] focus:ring-1 focus:ring-[#58a6ff] text-[#c9d1d9] placeholder-[#8b949e] transition-all"
               />
-              <kbd className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-[#8b949e] bg-[#21262d] px-1.5 py-0.5 rounded border border-[#30363d] hidden sm:block">
+              <kbd className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-[#8b949e] bg-[#21262d] px-1.5 py-0.5 rounded border border-layout-border hidden sm:block">
                 /
               </kbd>
             </div>
@@ -113,7 +113,7 @@ const TopNavbar = ({
                     `https://ui-avatars.com/api/?name=${user?.username}&background=58a6ff&color=fff&bold=true`
                   }
                   alt={user?.username}
-                  className="w-8 h-8 rounded-full border border-[#30363d]"
+                  className="w-8 h-8 rounded-full border border-layout-border"
                 />
                 <ChevronDown
                   size={16}
@@ -122,8 +122,8 @@ const TopNavbar = ({
               </button>
 
               {showUserMenu && (
-                <div className="absolute right-0 mt-2 w-56 bg-[#161b22] border border-[#30363d] rounded-lg shadow-xl overflow-hidden animate-slideDown">
-                  <div className="px-4 py-3 border-b border-[#30363d]">
+                <div className="absolute right-0 mt-2 w-56 bg-[#161b22] border border-layout-border rounded-lg shadow-xl overflow-hidden animate-slideDown">
+                  <div className="px-4 py-3 border-b border-layout-border">
                     <p className="text-sm font-semibold text-white">
                       {user?.username}
                     </p>
@@ -156,7 +156,7 @@ const TopNavbar = ({
                       <span className="text-sm text-white">Settings</span>
                     </Link>
                   </div>
-                  <div className="border-t border-[#30363d] py-2">
+                  <div className="border-t border-layout-border py-2">
                     <button
                       onClick={logoutUser}
                       className="flex items-center gap-3 w-full px-4 py-2 hover:bg-[#21262d] transition-colors text-left"

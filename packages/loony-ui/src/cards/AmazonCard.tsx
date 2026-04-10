@@ -81,9 +81,11 @@ const serviceData = [
 export const AmazonCard = () => {
   return (
     // Main container with a deep dark background
-    <div className="p-4 sm:p-8 bg-neutral-950 min-h-screen text-white">
+    <div className="p-4 sm:p-8 bg-neutral-950 min-h-screen">
       <div className="max-w-6xl mx-auto space-y-8">
-        <h1 className="text-3xl font-bold text-white mb-6">Payment Services</h1>
+        <h1 className="text-3xl font-bold text-text-primary mb-6">
+          Payment Services
+        </h1>
 
         {serviceData.map((section) => (
           <div
@@ -91,7 +93,7 @@ export const AmazonCard = () => {
             className="p-6 rounded-2xl bg-neutral-900 border border-neutral-800 shadow-2xl"
           >
             {/* Category Header */}
-            <h2 className="text-xl font-semibold text-white mb-6 border-b border-neutral-800 pb-3">
+            <h2 className="text-xl font-semibold text-text-primary mb-6 border-b border-neutral-800 pb-3">
               {section.category}
             </h2>
 

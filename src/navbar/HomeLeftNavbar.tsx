@@ -33,7 +33,7 @@ export default function DesktopLeftNavbar({
 
   return (
     <div
-      className={`${mobileNavOpen ? "" : "hidden"} bg-loony-darker text-stone-800 dark:text-stone-300 md:block w-72 p-4 space-y-6 shadow-md h-screen overflow-y-auto`}
+      className={`${mobileNavOpen ? "" : "hidden"} bg-layout-body text-stone-800 dark:text-stone-300 md:block w-72 p-4 space-y-6 shadow-md h-screen overflow-y-auto`}
     >
       {/* App Navigation */}
       <div>
@@ -50,24 +50,6 @@ export default function DesktopLeftNavbar({
             </a>
           ))}
         </nav>
-      </div>
-
-      {/* Subscribed Users */}
-      <div>
-        <h2 className="text-sm font-semibold uppercase mb-2">
-          Subscribed Users
-        </h2>
-        <ul className="space-y-1 text-sm">
-          <li className="px-3 py-1 rounded hover:bg-gray-100 dark:hover:bg-[#333333] cursor-pointer">
-            🔥 JohnDoe
-          </li>
-          <li className="px-3 py-1 rounded hover:bg-gray-100 dark:hover:bg-[#333333] cursor-pointer">
-            🌟 JaneSmith
-          </li>
-          <li className="px-3 py-1 rounded hover:bg-gray-100 dark:hover:bg-[#333333] cursor-pointer">
-            ⚡ CodeWizard
-          </li>
-        </ul>
       </div>
 
       {/* Legal / Misc */}

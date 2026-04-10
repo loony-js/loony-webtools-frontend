@@ -32,15 +32,33 @@ export function AppProvider({ children }: { children: ReactNode }) {
       width: 1920,
       height: 1080,
     },
-    isDark: true,
+    isDark: false,
     api: null,
   })
 
+  // Detect device type once on mount only
   useEffect(() => {
     if (window.innerWidth <= 720) {
-      setAppContext({ ...state, device: { ...state.device, type: "mobile" } })
+      setAppContext((prev) => ({
+        ...prev,
+        device: { ...prev.device, type: "mobile" },
+      }))
     }
-  }, [])
+  }, []) // ← empty array = runs once
+
+  // Handle theme separately, only when isDark changes
+  useEffect(() => {
+    const html = document.documentElement
+    if (state.isDark) {
+      html.classList.add("dark")
+      html.classList.remove("light")
+      localStorage.setItem("theme", "dark")
+    } else {
+      html.classList.add("light")
+      html.classList.remove("dark")
+      localStorage.setItem("theme", "light")
+    }
+  }, [state.isDark]) // ← only re-runs when isDark changes
 
   return (
     <AppContext.Provider value={{ ...state, setAppContext }}>

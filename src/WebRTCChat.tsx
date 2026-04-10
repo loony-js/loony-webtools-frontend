@@ -87,7 +87,7 @@ export default function WebRTCChat() {
   }
 
   return (
-    <main className="flex-1 min-h-screen bg-stone-50 dark:bg-layout-body text-white pt-16">
+    <main className="flex-1 min-h-screen bg-stone-50 dark:bg-layout-body text-text-primary pt-16">
       <div className="flex flex-col items-center gap-4 p-6">
         <h2 className="text-2xl font-semibold mb-2">🎥 WebRTC Chat</h2>
 
@@ -110,13 +110,13 @@ export default function WebRTCChat() {
         <div className="flex gap-4 mt-4">
           <button
             onClick={() => createPeerConnection(true)}
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+            className="px-4 py-2 bg-blue-600 text-text-primary rounded-lg hover:bg-blue-700"
           >
             Start Call
           </button>
           <button
             onClick={() => createPeerConnection(false)}
-            className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
+            className="px-4 py-2 bg-green-600 text-text-primary rounded-lg hover:bg-green-700"
           >
             Join Call
           </button>
@@ -146,7 +146,7 @@ export default function WebRTCChat() {
             />
             <button
               onClick={sendMessage}
-              className="px-4 py-1 bg-blue-600 text-white rounded-r-lg hover:bg-blue-700"
+              className="px-4 py-1 bg-blue-600 text-text-primary rounded-r-lg hover:bg-blue-700"
             >
               Send
             </button>

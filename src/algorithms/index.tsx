@@ -10,8 +10,8 @@ export default function Algorithms() {
   const [sortingName, setSortingName] = useState("bubble")
 
   return (
-    <main className="flex-1 min-h-screen ml-72 bg-stone-50 dark:bg-layout-body pt-16 text-white">
-      <div className="min-h-screen flex flex-col px-[5%] text-white">
+    <main className="flex-1 min-h-screen ml-72 bg-stone-50 dark:bg-layout-body pt-16">
+      <div className="min-h-screen flex flex-col px-[5%]">
         <div className="flex flex-row">
           <div className="w-64 flex flex-col">
             {sortingNames.map((name) => {

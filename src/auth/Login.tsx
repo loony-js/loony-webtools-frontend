@@ -95,7 +95,7 @@ function Login({ authContext }: { authContext: AuthContextType }) {
   return (
     <div className="flex-1 min-h-screen bg-layout-body pt-16">
       <div className="flex-1 mx-auto">
-        <div className="max-w-md mx-auto mt-10 p-6 rounded-lg border border-[#30363d]">
+        <div className="max-w-md mx-auto mt-10 p-6 rounded-lg border border-layout-border">
           <div className="text-center mt-4 mb-8">
             <h2 className="text-3xl font-bold">Welcome Back</h2>
           </div>
@@ -222,7 +222,7 @@ function Login({ authContext }: { authContext: AuthContextType }) {
                     ? "cursor-not-allowed"
                     : "active:bg-gray-900 bg-button-green-DEFAULT hover:bg-button-green-hover dark:active:bg-gray-800"
                 }
-                text-white focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800
+                text-text-primary focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800
               `}
             >
               {isLoading ? (

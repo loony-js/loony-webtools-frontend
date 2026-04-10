@@ -1,4 +1,8 @@
 export default {
+  darkMode: "class",
+  content: [
+    "./src/**/*.{html,js,ts,jsx,tsx}", // Scans your src files for class usage
+  ],
   theme: {
     extend: {
       colors: {

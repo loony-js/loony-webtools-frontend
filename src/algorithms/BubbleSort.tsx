@@ -71,7 +71,7 @@ const BubbleSortVisualizer = () => {
   return (
     <div className="">
       <div>
-        <h2>Bubble Sort</h2>
+        <h2 className="text-text-primary">Bubble Sort</h2>
       </div>
       <div className="flex items-end py-3">
         {array.map((num, idx) => (
@@ -80,7 +80,7 @@ const BubbleSortVisualizer = () => {
             style={{ height: num }}
             className={`p-1 mr-2 border border-gray-500 ${swappingIdx.includes(idx) ? "border-white" : ""}`}
           >
-            {num}
+            <span className="text-text-primary">{num}</span>
           </div>
         ))}
       </div>

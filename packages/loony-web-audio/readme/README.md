@@ -35,14 +35,14 @@ function App() {
       <h2 className="text-xl font-bold mb-4">Voice Recorder</h2>
       <div className="flex gap-4">
         <button
-          className="px-4 py-2 bg-green-500 text-white rounded disabled:bg-gray-400"
+          className="px-4 py-2 bg-green-500 text-text-primary rounded disabled:bg-gray-400"
           onClick={startRecording}
           disabled={isRecording}
         >
           🎙️ Start Recording
         </button>
         <button
-          className="px-4 py-2 bg-red-500 text-white rounded disabled:bg-gray-400"
+          className="px-4 py-2 bg-red-500 text-text-primary rounded disabled:bg-gray-400"
           onClick={stopRecording}
           disabled={!isRecording}
         >

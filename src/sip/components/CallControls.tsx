@@ -38,7 +38,7 @@ export const CallControls: React.FC = () => {
   }
 
   return (
-    <div className="w-full max-w-md mx-auto border border-[#30363d] rounded-xl p-5 space-y-5">
+    <div className="w-full max-w-md mx-auto border border-layout-border rounded-xl p-5 space-y-5">
       {/* Status */}
       <div className="space-y-2 text-center">
         <div className="text-sm text-gray-400">Status</div>
@@ -98,7 +98,7 @@ export const CallControls: React.FC = () => {
             onChange={(e) => setTargetNumber(e.target.value)}
             placeholder="Enter number"
             disabled={isInCall}
-            className="flex-1 px-3 py-2 rounded-md bg-[var(--color-loony-darker)] border border-[#30363d] text-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-loony-primary)]"
+            className="flex-1 px-3 py-2 rounded-md bg-[var(--color-loony-darker)] border border-layout-border text-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-loony-primary)]"
           />
           <button
             onClick={() => makeCall(targetNumber)}
@@ -115,7 +115,7 @@ export const CallControls: React.FC = () => {
         <div className="grid grid-cols-3 gap-2">
           <button
             onClick={isMuted ? unmute : mute}
-            className={`py-2 rounded-md border border-[#30363d] ${
+            className={`py-2 rounded-md border border-layout-border ${
               isMuted ? "bg-yellow-500/10 text-yellow-400" : "text-gray-300"
             }`}
           >
@@ -124,7 +124,7 @@ export const CallControls: React.FC = () => {
 
           <button
             onClick={isOnHold ? unholdCall : holdCall}
-            className={`py-2 rounded-md border border-[#30363d] ${
+            className={`py-2 rounded-md border border-layout-border ${
               isOnHold ? "bg-yellow-500/10 text-yellow-400" : "text-gray-300"
             }`}
           >
@@ -133,14 +133,14 @@ export const CallControls: React.FC = () => {
 
           <button
             onClick={() => setShowDialpad(!showDialpad)}
-            className="py-2 rounded-md border border-[#30363d] text-gray-300"
+            className="py-2 rounded-md border border-layout-border text-gray-300"
           >
             Keypad
           </button>
 
           <button
             onClick={() => setShowTransfer(!showTransfer)}
-            className="py-2 rounded-md border border-[#30363d] text-gray-300 col-span-2"
+            className="py-2 rounded-md border border-layout-border text-gray-300 col-span-2"
           >
             Transfer
           </button>
@@ -161,7 +161,7 @@ export const CallControls: React.FC = () => {
             <button
               key={k}
               onClick={() => sendDTMF(k.toString())}
-              className="py-3 rounded-md bg-[var(--color-loony-darker)] border border-[#30363d] text-gray-200 hover:bg-gray-800"
+              className="py-3 rounded-md bg-[var(--color-loony-darker)] border border-layout-border text-gray-200 hover:bg-gray-800"
             >
               {k}
             </button>
@@ -176,7 +176,7 @@ export const CallControls: React.FC = () => {
             value={transferTarget}
             onChange={(e) => setTransferTarget(e.target.value)}
             placeholder="Transfer target"
-            className="w-full px-3 py-2 rounded-md bg-[var(--color-loony-darker)] border border-[#30363d] text-gray-200"
+            className="w-full px-3 py-2 rounded-md bg-[var(--color-loony-darker)] border border-layout-border text-gray-200"
           />
           <div className="flex gap-2">
             <button
@@ -186,13 +186,13 @@ export const CallControls: React.FC = () => {
                 setTransferTarget("")
               }}
               disabled={!transferTarget}
-              className="flex-1 py-2 bg-[var(--color-loony-primary)] text-white rounded-md disabled:opacity-50"
+              className="flex-1 py-2 bg-[var(--color-loony-primary)] text-text-primary rounded-md disabled:opacity-50"
             >
               Confirm
             </button>
             <button
               onClick={() => setShowTransfer(false)}
-              className="flex-1 py-2 border border-[#30363d] text-gray-300 rounded-md"
+              className="flex-1 py-2 border border-layout-border text-gray-300 rounded-md"
             >
               Cancel
             </button>
