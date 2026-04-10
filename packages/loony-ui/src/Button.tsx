@@ -17,7 +17,7 @@ export const buttonVariant: any = {
     py-2
     border
     border-[#cccccc]
-    dark:border-[#4d4d4d]
+    dark:border-[#30363d]
     hover:border-[#666666]
     text-gray-800
     dark:text-white
@@ -49,7 +49,7 @@ export const buttonVariant: any = {
     p-4
     py-2
     border
-    border-[#4d4d4d]
+    border-[#30363d]
     dark:border-[#636363]
     dark:text-gray-300
     hover:border-gray-500

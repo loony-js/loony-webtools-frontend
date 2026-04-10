@@ -95,7 +95,7 @@ function Login({ authContext }: { authContext: AuthContextType }) {
   return (
     <div className="flex-1 min-h-screen bg-layout-body pt-16">
       <div className="flex-1 mx-auto">
-        <div className="max-w-md mx-auto mt-10 p-6 rounded-lg border border-[#4d4d4d]">
+        <div className="max-w-md mx-auto mt-10 p-6 rounded-lg border border-[#30363d]">
           <div className="text-center mt-4 mb-8">
             <h2 className="text-3xl font-bold">Welcome Back</h2>
           </div>

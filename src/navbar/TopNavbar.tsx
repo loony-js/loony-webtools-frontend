@@ -73,7 +73,7 @@ const TopNavbar = ({
             className="text-white hover:text-[#58a6ff] transition-colors"
           >
             {/* <Code2 size={32} /> */}
-            Loony
+            Webtools
           </Link>
 
           {/* Search Bar */}
