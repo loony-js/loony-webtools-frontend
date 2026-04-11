@@ -93,7 +93,7 @@ function Encrypt({ setState: aegisSetState }: any) {
   }
 
   return (
-    <div className="min-h-screen flex flex-col px-[30%] text-white">
+    <div className="min-h-screen flex flex-col px-[30%]">
       <div className="py-4">
         <Button variant="border" onClick={goHome}>
           <ArrowLeft size={18} />
@@ -189,7 +189,7 @@ function Encrypt({ setState: aegisSetState }: any) {
                 onClick={() =>
                   setState({ ...state, showPassword: !state.showPassword })
                 }
-                className="absolute inset-y-0 right-3 flex items-center text-gray-500 hover:text-gray-700"
+                className="absolute inset-y-0 right-3 flex items-center text-gray-500"
               >
                 {state.showPassword ? (
                   <IoEyeOff className="w-5 h-5" />
@@ -222,7 +222,7 @@ function Encrypt({ setState: aegisSetState }: any) {
                     showMasterPassword: !state.showMasterPassword,
                   })
                 }
-                className="absolute inset-y-0 right-3 flex items-center text-gray-500 hover:text-gray-700"
+                className="absolute inset-y-0 right-3 flex items-center text-gray-500"
               >
                 {state.showMasterPassword ? (
                   <IoEyeOff className="w-5 h-5" />
@@ -267,13 +267,9 @@ function Encrypt({ setState: aegisSetState }: any) {
             rounded-lg
             font-medium
             duration-200
-            bg-black
             text-white
-            hover:bg-gray-800
-            dark:bg-white
-            dark:text-black
-            dark:hover:bg-gray-200
-            dark:focus:ring-white"
+            bg-button-green-DEFAULT
+            hover:bg-button-green-hover"
         >
           Submit
         </button>

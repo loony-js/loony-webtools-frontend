@@ -53,7 +53,7 @@ export const LoginForm: React.FC = () => {
             placeholder="wss://server:7443"
             disabled={isConnecting}
             required
-            className="w-full px-3 py-2 rounded-md border border-layout-border text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--color-loony-primary)] disabled:opacity-60"
+            className="w-full px-3 py-2 rounded-md border border-layout-border text-text-secondary placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--color-loony-primary)] disabled:opacity-60"
           />
         </div>
 
@@ -69,7 +69,7 @@ export const LoginForm: React.FC = () => {
             placeholder="sip:user@domain"
             disabled={isConnecting}
             required
-            className="w-full px-3 py-2 rounded-md border border-layout-border text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--color-loony-primary)] disabled:opacity-60"
+            className="w-full px-3 py-2 rounded-md border border-layout-border text-text-secondary placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--color-loony-primary)] disabled:opacity-60"
           />
         </div>
 
@@ -84,7 +84,7 @@ export const LoginForm: React.FC = () => {
             onChange={(e) => setConfig({ ...config, password: e.target.value })}
             disabled={isConnecting}
             required
-            className="w-full px-3 py-2 rounded-md border border-layout-border text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--color-loony-primary)] disabled:opacity-60"
+            className="w-full px-3 py-2 rounded-md border border-layout-border text-text-secondary placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--color-loony-primary)] disabled:opacity-60"
           />
         </div>
 
@@ -100,7 +100,7 @@ export const LoginForm: React.FC = () => {
               setConfig({ ...config, displayName: e.target.value })
             }
             disabled={isConnecting}
-            className="w-full px-3 py-2 rounded-md border border-layout-border text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--color-loony-primary)] disabled:opacity-60"
+            className="w-full px-3 py-2 rounded-md border border-layout-border text-text-secondary placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--color-loony-primary)] disabled:opacity-60"
           />
         </div>
 

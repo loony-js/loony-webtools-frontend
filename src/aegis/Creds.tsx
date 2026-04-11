@@ -36,7 +36,7 @@ export default function Table({ state, setState }: any) {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center dark:text-white">
+    <div className="min-h-screen flex flex-col items-center">
       <div className="max-w-3xl w-full">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-semibold">Passwords</h1>

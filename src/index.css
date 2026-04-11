@@ -5,7 +5,7 @@
 @theme {
   /* layout */
   --color-layout-navbar: #131313;
-  --color-layout-body: #010409;
+  --color-layout-body: #212121;
   --color-layout-body-dark: #1a1a1a;
   --color-layout-border: #30363d;
   --color-layout-overlay: rgba(0, 0, 0, 0.6);
@@ -13,8 +13,8 @@
   /* surface */
   --color-surface-base: #010409;
   --color-surface-muted: #161b22;
-  --color-card-top: #0d1117;
-  --color-card-bottom: #131313;
+  --color-card-top: #333333;
+  --color-card-bottom: #303030;
 
   /* brand */
   --color-brand-primary: #1f6feb;
@@ -52,8 +52,8 @@
 
 .light {
   /* layout */
-  --color-layout-navbar: #f9f9f9;
-  --color-layout-body: #ffffff;
+  --color-layout-navbar: #ffffff;
+  --color-layout-body: #fafaf9;
   --color-layout-body-dark: #eaeef2;
   --color-layout-border: #d0d7de;
   --color-layout-overlay: rgba(0, 0, 0, 0.3);

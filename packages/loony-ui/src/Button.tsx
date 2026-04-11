@@ -17,7 +17,7 @@ export const buttonVariant: any = {
     py-2
     border
     border-[#cccccc]
-    dark:border-layout-border
+    dark:border-[#4d4d4d]
     hover:border-[#666666]
     text-gray-800
     dark:text-white
@@ -49,11 +49,10 @@ export const buttonVariant: any = {
     p-4
     py-2
     border
-    border-layout-border
+    border-[#4d4d4d]
     dark:border-[#636363]
     dark:text-gray-300
     hover:border-gray-500
-    hover:text-gray-100
     `,
   hoverButton: `flex
     items-center
@@ -83,6 +82,24 @@ export const Button = ({
 }) => {
   return (
     <button onClick={onClick} className={buttonVariant[variant]}>
+      {children}
+    </button>
+  )
+}
+
+export const ButtonSubmit = ({
+  onClick,
+  children,
+}: {
+  onClick: React.MouseEventHandler<HTMLButtonElement>
+  children: ReactNode
+}) => {
+  return (
+    <button
+      onClick={onClick}
+      className="active:bg-gray-900 bg-button-green-DEFAULT hover:bg-button-green-hover dark:active:bg-gray-800
+      text-text-primary focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
+    >
       {children}
     </button>
   )

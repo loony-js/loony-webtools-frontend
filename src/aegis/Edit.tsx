@@ -107,7 +107,7 @@ function Edit({ state: aegisState, setState: aegisSetState }: any) {
   }
 
   return (
-    <div className="min-h-screen flex flex-col px-[30%] text-white">
+    <div className="min-h-screen flex flex-col px-[30%]">
       <div className="py-4">
         <Button variant="border" onClick={goHome}>
           <ArrowLeft size={18} />
@@ -281,13 +281,9 @@ function Edit({ state: aegisState, setState: aegisSetState }: any) {
             rounded-lg
             font-medium
             duration-200
-            bg-black
-            text-white
-            hover:bg-gray-800
-            dark:bg-white
-            dark:text-black
-            dark:hover:bg-gray-200
-            dark:focus:ring-white"
+            bg-button-green-DEFAULT
+            hover:bg-button-green-hover
+            "
         >
           Submit
         </button>

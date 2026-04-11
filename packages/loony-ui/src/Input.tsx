@@ -26,8 +26,6 @@ export const Input = ({
         border-layout-border
         dark:border-layout-border
         rounded-md
-        bg-gray-50
-        dark:bg-[#292929]
         text-gray-900
         dark:text-white
         focus:outline-none

@@ -148,7 +148,7 @@ const CandlestickChart = ({
 
   return (
     <main className="flex-1 min-h-screen bg-stone-50 dark:bg-layout-body pt-16">
-      <div className="min-h-screen flex flex-col px-[5%] text-white">
+      <div className="min-h-screen flex flex-col px-[5%]">
         <canvas
           ref={canvasRef}
           style={{ border: "1px solid #ccc" }}
