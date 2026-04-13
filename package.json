@@ -5,7 +5,8 @@
   "scripts": {
     "build": "rsbuild build",
     "check": "biome check --write",
-    "dev": "rsbuild dev --open",
+    "dev:http": "HTTPS=false rsbuild dev --open",
+    "dev:https": "HTTPS=true rsbuild dev --open",
     "frontend": "rsbuild dev --open",
     "backend": "node ./src/api.tsx",
     "format": "prettier --write .",
@@ -20,6 +21,7 @@
     "dotenv": "17.2.3",
     "jssip": "^3.13.5",
     "lightweight-charts": "5.0.9",
+    "loony-dotenv": "^0.1.2",
     "loony-timer": "0.1.0",
     "loony-types": "0.1.0",
     "loony-ui": "0.1.0",

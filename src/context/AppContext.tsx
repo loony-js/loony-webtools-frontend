@@ -22,6 +22,15 @@ const AppContext = createContext<AppContextProps>({
   },
 })
 
+// Read persisted theme before first render to avoid a flash
+const getInitialTheme = (): boolean => {
+  const stored = localStorage.getItem("theme")
+  if (stored === "dark") return true
+  if (stored === "light") return false
+  // Fall back to OS preference if nothing stored
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+}
+
 export function AppProvider({ children }: { children: ReactNode }) {
   const [state, setAppContext] = useState<AppState>({
     env: {
@@ -32,7 +41,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       width: 1920,
       height: 1080,
     },
-    isDark: false,
+    isDark: getInitialTheme(),
     api: null,
   })
 
@@ -44,9 +53,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
         device: { ...prev.device, type: "mobile" },
       }))
     }
-  }, []) // ← empty array = runs once
+  }, [])
 
-  // Handle theme separately, only when isDark changes
+  // Sync theme class + localStorage whenever isDark changes
   useEffect(() => {
     const html = document.documentElement
     if (state.isDark) {
@@ -58,7 +67,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       html.classList.remove("dark")
       localStorage.setItem("theme", "light")
     }
-  }, [state.isDark]) // ← only re-runs when isDark changes
+  }, [state.isDark])
 
   return (
     <AppContext.Provider value={{ ...state, setAppContext }}>

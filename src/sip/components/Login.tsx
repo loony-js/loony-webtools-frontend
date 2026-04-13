@@ -108,7 +108,7 @@ export const LoginForm: React.FC = () => {
         <button
           type="submit"
           disabled={isConnecting}
-          className="w-full py-2.5 rounded-md bg-button-green-DEFAULT text-text-primary font-medium hover:bg-button-green-hover transition disabled:opacity-60 disabled:cursor-not-allowed"
+          className="w-full py-2.5 rounded-md bg-button-green-DEFAULT text-white font-medium hover:bg-button-green-hover transition disabled:opacity-60 disabled:cursor-not-allowed"
         >
           {isConnecting ? "Connecting..." : "Login"}
         </button>

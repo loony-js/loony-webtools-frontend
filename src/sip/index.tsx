@@ -39,7 +39,7 @@ function Softphone() {
   ].includes(callState)
 
   return (
-    <main className="flex-1 min-h-screen bg-white dark:bg-layout-body pt-16">
+    <main className="flex-1 min-h-screen bg-white dark:bg-layout-body pt-16 text-white">
       <div className="w-[60%] mx-auto p-4 space-y-6">
         <div className="softphone-container">
           {error && <div className="error-message">Error: {error}</div>}
