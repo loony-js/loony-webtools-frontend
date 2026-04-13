@@ -23,12 +23,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "paths": {
-      "loony-sdk": ["./packages/loony-sdk/src"],
-      "loony-sdk/*": ["./packages/loony-sdk/src/*"],
       "loony-utils": ["./packages/loony-utils/src"],
       "loony-utils/*": ["./packages/loony-utils/src/*"],
-      "speechmatics": ["./packages/speechmatics/src"],
-      "speechmatics/*": ["./packages/speechmatics/src/*"],
       "loony-timer": ["./packages/loony-timer/src"],
       "loony-timer/*": ["./packages/loony-timer/src/*"],
       "loony-web-api": ["./packages/loony-web-api/src"],
