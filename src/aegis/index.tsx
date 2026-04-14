@@ -95,6 +95,7 @@ export default function PasswordManager() {
   function handleDelete(entry) {
     // TODO: confirm + delete
     console.log("Delete", entry)
+    setState(entries.filter((x) => x.id !== entry.id))
   }
 
   const addOne = (entry: any) => {

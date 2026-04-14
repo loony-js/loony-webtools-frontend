@@ -55,6 +55,22 @@ function CopyButton({ value }) {
   )
 }
 
+function Field({ label, optional, children }) {
+  return (
+    <div className="flex flex-col gap-1.5">
+      <label className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+        {label}
+        {optional && (
+          <span className="text-[10px] font-normal normal-case tracking-normal text-zinc-400 dark:text-zinc-600">
+            (optional)
+          </span>
+        )}
+      </label>
+      {children}
+    </div>
+  )
+}
+
 function FieldRow({ label, value, mono = false, isLink = false, children }) {
   return (
     <div className="flex flex-col gap-1">
@@ -96,17 +112,53 @@ function FieldRow({ label, value, mono = false, isLink = false, children }) {
   )
 }
 
+const EMPTY_FORM = {
+  name: "",
+  url: "",
+  username: "",
+  password: "",
+  mpassword: "",
+  category: "social",
+  notes: "",
+}
+
+const inputCls =
+  "w-full h-9 px-3 text-sm bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-100 dark:focus:ring-violet-900/40 transition-all"
+
 export default function DetailPanel({ entry, onEdit, onDelete }) {
+  const [form, setForm] = useState(EMPTY_FORM)
+
   const [showPassword, setShowPassword] = useState(false)
+  const [showMPassword, setShowMPassword] = useState(false)
   const [master_password, setMasterPassword] = useState("")
   const [decrypted_password, setDecryptedPassword] = useState("")
   const [error, setError] = useState("")
+  const [errors, setErrors] = useState({})
 
   const onDecrypt = () => {
-    if (master_password) {
+    if (form.mpassword) {
       decryptOneCredentialApi({
         password: entry.values.password,
-        master_password,
+        master_password: form.mpassword,
+      })
+        .then((res) => {
+          onDelete(entry)
+        })
+        .then(() => {
+          // onDecryptFinish()
+        })
+        .catch((err) => {
+          console.log(err)
+          setError("Invalid")
+        })
+    }
+  }
+
+  const deletePassword = () => {
+    if (form.mpassword) {
+      deleteOneCredentialApi(entry.id, {
+        password: entry.values.password,
+        master_password: form.mpassword,
       })
         .then((res) => {
           if (res.data && res.data.password) {
@@ -122,6 +174,11 @@ export default function DetailPanel({ entry, onEdit, onDelete }) {
           setError("Invalid")
         })
     }
+  }
+
+  function set(field, value) {
+    setForm((f) => ({ ...f, [field]: value }))
+    if (errors[field]) setErrors((e) => ({ ...e, [field]: null }))
   }
 
   if (!entry) {
@@ -188,6 +245,39 @@ export default function DetailPanel({ entry, onEdit, onDelete }) {
           <StrengthBar strength={entry.strength} />
         </div>
 
+        <Field label="Master Password">
+          <div className="relative flex items-center">
+            <input
+              type={showMPassword ? "text" : "password"}
+              className={`${inputCls} pr-[72px] font-mono text-xs tracking-wide ${
+                errors.mpassword
+                  ? "border-red-400 focus:border-red-400 focus:ring-red-100 dark:focus:ring-red-900/40"
+                  : ""
+              }`}
+              placeholder="Enter master password"
+              value={form.mpassword}
+              onChange={(e) => set("mpassword", e.target.value)}
+            />
+            <div className="absolute right-1.5 flex items-center gap-0.5">
+              {/* Show / hide */}
+              <button
+                type="button"
+                onClick={() => setShowMPassword((v) => !v)}
+                className="w-7 h-7 flex items-center justify-center rounded-md text-zinc-400 hover:bg-zinc-200 hover:text-zinc-600 dark:hover:bg-zinc-700 dark:hover:text-zinc-300 transition-all"
+                title={showMPassword ? "Hide password" : "Show password"}
+              >
+                {showMPassword ? <EyeOff size={13} /> : <Eye size={13} />}
+              </button>
+            </div>
+          </div>
+          {errors.mpassword && (
+            <p className="text-xs text-red-500 dark:text-red-400 mt-0.5">
+              {errors.mpassword}
+            </p>
+          )}
+          {/* <StrengthMeter password={form.password} /> */}
+        </Field>
+
         <div className="flex flex-col gap-1">
           <p className="text-[10px] font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
             Last updated
@@ -208,13 +298,13 @@ export default function DetailPanel({ entry, onEdit, onDelete }) {
           Edit
         </button>
         <button
-          onClick={() => onEdit?.(entry)}
+          onClick={onDecrypt}
           className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg border border-zinc-200 dark:border-zinc-700 text-sm text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 active:scale-[0.98] transition-all"
         >
           Decrypt
         </button>
         <button
-          onClick={() => onDelete?.(entry)}
+          onClick={deletePassword}
           className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg border border-red-200 dark:border-red-900/60 text-sm text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 active:scale-[0.98] transition-all"
         >
           <Trash2 size={13} />
