@@ -1,8 +1,4 @@
 import { useState } from "react"
-import BubbleSort from "./BubbleSort"
-import SelectionSort from "./SelectionSort"
-import MergeSortVisualizer from "./MergeSort"
-
 import {
   ShieldCheck,
   LayoutList,
@@ -15,9 +11,8 @@ import {
 } from "lucide-react"
 
 const NAV_ITEMS = [
-  { label: "Bubble Sort", icon: LayoutList, id: "bubble" },
-  { label: "Selection Sort", icon: Star, id: "selection" },
-  { label: "Merge Sort", icon: Star, id: "merge" },
+  { label: "Login", icon: LayoutList, id: "login" },
+  { label: "Call Controls", icon: Star, id: "call_controls" },
 ]
 
 const CATEGORIES = [
@@ -54,12 +49,11 @@ function NavItem({ item, active, onClick }) {
   )
 }
 
-function Aside({ setSortingName }) {
+export default function Aside({}) {
   const [selected, setSelected] = useState(1)
 
   function handleSelect(id) {
     setSelected(id)
-    setSortingName(id)
   }
 
   return (
@@ -71,7 +65,7 @@ function Aside({ setSortingName }) {
             <ShieldCheck size={14} className="text-white" />
           </div>
           <span className="text-[15px] font-semibold tracking-tight text-zinc-900 dark:text-white">
-            Algorithms
+            SIP
           </span>
         </div>
       </div>
@@ -139,20 +133,5 @@ function Aside({ setSortingName }) {
         </div>
       </div>
     </aside>
-  )
-}
-
-export default function Algorithms() {
-  const [sortingName, setSortingName] = useState("bubble")
-
-  return (
-    <main className="flex-1 flex min-h-screen bg-stone-50 dark:bg-layout-body">
-      <Aside setSortingName={setSortingName} />
-      <div className="pl-24 pt-8">
-        {sortingName === "bubble" ? <BubbleSort /> : null}
-        {sortingName === "selection" ? <SelectionSort /> : null}
-        {sortingName === "merge" ? <MergeSortVisualizer /> : null}
-      </div>
-    </main>
   )
 }

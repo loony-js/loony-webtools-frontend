@@ -4,6 +4,7 @@ import { LoginForm } from "./components/Login"
 import { CallControls } from "./components/CallControls"
 import { CallState } from "./types/softphone"
 import { SoftphoneProvider } from "../context/SoftPhoneContext"
+import Sidebar from "./Sidebar"
 
 function Softphone() {
   const { callState, error } = useSoftphone()
@@ -39,14 +40,16 @@ function Softphone() {
   ].includes(callState)
 
   return (
-    <main className="flex-1 min-h-screen bg-white dark:bg-layout-body pt-16 text-white">
-      <div className="w-[60%] mx-auto p-4 space-y-6">
-        <div className="softphone-container">
-          {error && <div className="error-message">Error: {error}</div>}
-
-          {!isLoggedIn ? <LoginForm /> : <CallControls />}
-        </div>
+    <main className="flex-1 flex min-h-screen bg-white dark:bg-layout-body text-white">
+      <Sidebar />
+      <div className="w-100 mx-auto pt-8">
+        {error && <div className="error-message">Error: {error}</div>}
+        {!isLoggedIn ? <LoginForm /> : <CallControls />}
       </div>
+      {/* <div className="">
+        <div className="softphone-container">
+        </div>
+      </div> */}
     </main>
   )
 }

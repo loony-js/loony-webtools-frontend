@@ -29,7 +29,7 @@ export const LoginForm: React.FC = () => {
   const isConnecting = callState === CallState.REGISTERING
 
   return (
-    <div className="w-full max-w-md mx-auto border border-layout-border rounded-xl shadow-lg p-6 space-y-6">
+    <div className="border border-layout-border rounded-xl shadow-lg p-6 space-y-6">
       <h2 className="text-xl font-semibold text-text-primary text-center">
         SIP Phone Login
       </h2>
@@ -132,3 +132,4 @@ export const LoginForm: React.FC = () => {
     </div>
   )
 }
+// w-full max-w-md mx-auto h-150 mt-16 border border-layout-border rounded-xl shadow-lg p-6 space-y-6
