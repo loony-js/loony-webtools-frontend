@@ -233,13 +233,20 @@ export default function DetailPanel({ entry, onEdit, onDelete }) {
               {decrypted_password ? decrypted_password : displayPassword}
             </span>
             <button
-              onClick={() => setShowPassword((p) => !p)}
+              onClick={() => {
+                setShowPassword((p) => !p)
+                setDecryptedPassword("")
+              }}
               title={showPassword ? "Hide" : "Show"}
               className="w-7 h-7 flex items-center justify-center rounded-md text-zinc-400 hover:bg-zinc-100 hover:text-zinc-600 dark:hover:bg-zinc-700 dark:hover:text-zinc-300 transition-all"
             >
               {showPassword ? <EyeOff size={13} /> : <Eye size={13} />}
             </button>
-            <CopyButton value={entry.values.password} />
+            <CopyButton
+              value={
+                decrypted_password ? decrypted_password : entry.values.password
+              }
+            />
           </div>
           <StrengthBar strength={entry.strength} />
         </div>

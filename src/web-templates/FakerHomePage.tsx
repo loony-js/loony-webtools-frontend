@@ -1,4 +1,3 @@
-import React from "react"
 import {
   Search,
   Book,
@@ -19,7 +18,7 @@ import {
 
 const FakerHomePage = () => {
   return (
-    <div className="min-h-screen bg-neutral-900 text-neutral-300 font-sans">
+    <div className="flex-6 min-h-screen bg-neutral-900 text-neutral-300 font-sans">
       {/* Top Navigation */}
       <nav className="flex items-center justify-between p-4 border-b border-neutral-800">
         <div className="flex items-center space-x-6">

@@ -68,7 +68,7 @@ export const AppRoute = ({
           appContext={appContext}
           setMobileNavOpen={() => {}}
         />
-        <div className="flex flex-1 overflow-hidden h-screen dark:bg-layout-body">
+        <div className="flex flex-1 overflow-hidden h-screen dark:bg-layout-body text-text-primary">
           {/* <LoginDesktopLeftNavbar /> */}
           <Suspense
             fallback={
