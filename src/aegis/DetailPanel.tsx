@@ -9,6 +9,11 @@ import {
   Check,
 } from "lucide-react"
 import StrengthBar from "./StrengthBar"
+import {
+  getOneCredentialApi,
+  decryptOneCredentialApi,
+  deleteOneCredentialApi,
+} from "../api/index"
 
 const AVATAR_COLORS = [
   "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300",
@@ -93,6 +98,31 @@ function FieldRow({ label, value, mono = false, isLink = false, children }) {
 
 export default function DetailPanel({ entry, onEdit, onDelete }) {
   const [showPassword, setShowPassword] = useState(false)
+  const [master_password, setMasterPassword] = useState("")
+  const [decrypted_password, setDecryptedPassword] = useState("")
+  const [error, setError] = useState("")
+
+  const onDecrypt = () => {
+    if (master_password) {
+      decryptOneCredentialApi({
+        password: entry.values.password,
+        master_password,
+      })
+        .then((res) => {
+          if (res.data && res.data.password) {
+            setDecryptedPassword(res.data.password)
+            setError("")
+          }
+        })
+        .then(() => {
+          // onDecryptFinish()
+        })
+        .catch((err) => {
+          console.log(err)
+          setError("Invalid")
+        })
+    }
+  }
 
   if (!entry) {
     return (
@@ -105,7 +135,7 @@ export default function DetailPanel({ entry, onEdit, onDelete }) {
   }
 
   const avatarColor = getAvatarColor(entry.name)
-  const displayPassword = showPassword ? entry.password : "•".repeat(16)
+  const displayPassword = showPassword ? entry.values.password : "•".repeat(16)
 
   return (
     <div className="w-120 shrink-0 flex flex-col border-l border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden">
@@ -121,21 +151,21 @@ export default function DetailPanel({ entry, onEdit, onDelete }) {
             {entry.name}
           </p>
           <p className="text-xs text-zinc-400 dark:text-zinc-500 truncate">
-            {entry.url?.replace(/^https?:\/\//, "")}
+            {entry.values.url?.replace(/^https?:\/\//, "")}
           </p>
         </div>
       </div>
 
       {/* Fields */}
       <div className="flex-1 overflow-y-auto px-5 py-4 flex flex-col gap-4">
-        {entry.url && (
-          <FieldRow label="Website" value={entry.url} isLink>
-            <CopyButton value={entry.url} />
+        {entry.values.url && (
+          <FieldRow label="Website" value={entry.values.url} isLink>
+            <CopyButton value={entry.values.url} />
           </FieldRow>
         )}
 
-        <FieldRow label="Username" value={entry.username}>
-          <CopyButton value={entry.username} />
+        <FieldRow label="Username" value={entry.values.username}>
+          <CopyButton value={entry.values.username} />
         </FieldRow>
 
         <div className="flex flex-col gap-1">
@@ -144,7 +174,7 @@ export default function DetailPanel({ entry, onEdit, onDelete }) {
           </p>
           <div className="flex items-center gap-1 px-3 py-2 rounded-lg bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700">
             <span className="flex-1 text-xs font-mono tracking-wide text-zinc-800 dark:text-zinc-200 truncate">
-              {displayPassword}
+              {decrypted_password ? decrypted_password : displayPassword}
             </span>
             <button
               onClick={() => setShowPassword((p) => !p)}
@@ -153,7 +183,7 @@ export default function DetailPanel({ entry, onEdit, onDelete }) {
             >
               {showPassword ? <EyeOff size={13} /> : <Eye size={13} />}
             </button>
-            <CopyButton value={entry.password} />
+            <CopyButton value={entry.values.password} />
           </div>
           <StrengthBar strength={entry.strength} />
         </div>

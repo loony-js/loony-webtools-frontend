@@ -2,6 +2,10 @@ import { useState } from "react"
 import Sidebar from "./Sidebar"
 import PasswordList from "./PasswordList"
 import DetailPanel from "./DetailPanel"
+import { useCallback, useContext, useEffect } from "react"
+import { getAllCredentialsApi, addOneCredentialApi } from "../api/index"
+import { AuthContext } from "../context/AuthContext"
+import AddPasswordModal from "./AddPasswordModal"
 
 // Sample data — replace with your actual state/API
 const SAMPLE_ENTRIES = [
@@ -53,8 +57,35 @@ const SAMPLE_ENTRIES = [
 ]
 
 export default function PasswordManager() {
-  const [entries] = useState(SAMPLE_ENTRIES)
-  const [selectedEntry, setSelectedEntry] = useState(SAMPLE_ENTRIES[0])
+  const { user } = useContext(AuthContext)
+  const [entries, setState] = useState([])
+  const [selectedEntry, setSelectedEntry] = useState(null)
+  const [modalOpen, setModalOpen] = useState(false)
+
+  useEffect(() => {
+    if (user) {
+      getAllCredentialsApi(user?.uid).then(({ data }) => {
+        setState(data)
+        setSelectedEntry(data[0])
+      })
+    }
+  }, [user, setState])
+
+  const encryptOne = useCallback(() => {
+    setState((prevState: any) => ({
+      ...prevState,
+      activeTab: 2,
+    }))
+  }, [setState])
+
+  const decryptItem = (e: any, item: any) => {
+    e.preventDefault()
+    setState((prevState: any) => ({
+      ...prevState,
+      activeTab: 3,
+      activeCredential: item,
+    }))
+  }
 
   function handleEdit(entry) {
     // TODO: open edit modal / form
@@ -66,9 +97,32 @@ export default function PasswordManager() {
     console.log("Delete", entry)
   }
 
+  const addOne = (entry: any) => {
+    addOneCredentialApi({
+      ...entry,
+      master_password: entry.mpassword,
+      user_id: user?.uid,
+      inputs: {},
+    })
+      .then(({ data }) => {
+        setState([...entries, data])
+        // setEntries((prev) => [...prev, data])
+        setModalOpen(false)
+      })
+      .then(() => {
+        // setFormData(createNewFormData())
+      })
+      .then(() => {
+        // goHome()
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+
   return (
     <div className="flex h-screen bg-zinc-50 dark:bg-zinc-950 font-sans overflow-hidden">
-      <Sidebar activeId="all" onAddNew={() => console.log("Add new")} />
+      <Sidebar activeId="all" onAddNew={() => setModalOpen(true)} />
 
       <PasswordList
         entries={entries}
@@ -76,10 +130,20 @@ export default function PasswordManager() {
         onSelect={setSelectedEntry}
       />
 
-      <DetailPanel
-        entry={selectedEntry}
-        onEdit={handleEdit}
-        onDelete={handleDelete}
+      {selectedEntry && (
+        <DetailPanel
+          entry={selectedEntry}
+          onEdit={handleEdit}
+          onDelete={handleDelete}
+        />
+      )}
+
+      <AddPasswordModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        onSave={(entry) => {
+          addOne(entry)
+        }}
       />
     </div>
   )

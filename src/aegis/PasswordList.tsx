@@ -68,7 +68,7 @@ export function PasswordCard({ entry, selected, onClick }) {
           {entry.name}
         </p>
         <p className="text-xs text-zinc-400 dark:text-zinc-500 truncate mt-0.5">
-          {entry.username}
+          {entry.values.username}
         </p>
       </div>
 
