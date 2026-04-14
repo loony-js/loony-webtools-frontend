@@ -115,6 +115,7 @@ export default function PasswordList({ entries = [], selectedId, onSelect }) {
             <input
               type="text"
               placeholder="Search…"
+              value=""
               className="pl-7 pr-3 py-1.5 text-sm rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 placeholder-zinc-400 outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-100 dark:focus:ring-violet-900/40 transition-all w-40"
             />
           </div>
