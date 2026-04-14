@@ -19,7 +19,7 @@ import SipClient from "./sip"
 
 const Home = lazy(() => import("./Home"))
 const Aegis = lazy(() => import("./aegis"))
-const VoiceStreaming = lazy(() => import("./streaming/VoiceStreaming"))
+const VoiceStreaming = lazy(() => import("./streaming/index"))
 const Trading = lazy(() => import("./Trading"))
 const Algorithms = lazy(() => import("./algorithms"))
 const HSLPaletteGenerator = lazy(() => import("./Colors"))
