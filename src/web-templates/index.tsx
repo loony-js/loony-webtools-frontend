@@ -11,10 +11,11 @@ import {
   Plus,
 } from "lucide-react"
 import FakerHomePage from "./FakerHomePage"
+import AmazonCards from "./AmazonCards"
 
 const NAV_ITEMS = [
-  { label: "Faker", icon: LayoutList, id: "all" },
-  { label: "Favorites", icon: Star, id: "favorites" },
+  { label: "Faker", icon: LayoutList, id: "faker" },
+  { label: "Amazon Cards", icon: Star, id: "amazon_cards" },
 ]
 
 const CATEGORIES = [
@@ -42,13 +43,7 @@ function NavItem({ item, active, onClick }) {
   )
 }
 
-function Aside() {
-  const [selected, setSelected] = useState(1)
-
-  function handleSelect(id) {
-    setSelected(id)
-  }
-
+function Aside({ handleSelect, selected }) {
   return (
     <aside className="w-80 shrink-0 flex flex-col bg-white dark:bg-zinc-900 border-r border-zinc-200 dark:border-zinc-800">
       {/* Logo */}
@@ -130,10 +125,17 @@ function Aside() {
 }
 
 export default function WebTemplate() {
+  const [selected, setSelected] = useState("faker")
+
+  function handleSelect(id) {
+    setSelected(id)
+  }
+
   return (
     <div className="flex-1 flex bg-stone-50 dark:bg-layout-body overflow-y-auto">
-      <Aside />
-      <FakerHomePage />
+      <Aside handleSelect={handleSelect} selected={selected} />
+      {selected === "faker" && <FakerHomePage />}
+      {selected === "amazon_cards" && <AmazonCards />}
     </div>
   )
 }

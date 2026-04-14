@@ -78,7 +78,7 @@ const serviceData = [
 
 // --- Service Grid Component ---
 
-export const AmazonCard = () => {
+export default function AmazonCards() {
   return (
     // Main container with a deep dark background
     <div className="p-4 sm:p-8 bg-neutral-950 min-h-screen">

@@ -117,6 +117,20 @@ const projects = [
     languageDot: "bg-purple-400",
     stars: 6,
   },
+  {
+    id: 9,
+    title: "JWT",
+    route: "jwt",
+    description: "SIP-based VoIP client with call management",
+    category: "VoIP",
+    categoryColor: "bg-rose-500/20 text-rose-300 ring-1 ring-rose-500/30",
+    icon: "📞",
+    bannerBg: "from-rose-950 to-slate-900",
+    updatedAt: "1w ago",
+    language: "Kotlin",
+    languageDot: "bg-purple-400",
+    stars: 6,
+  },
 ]
 
 export default function Home({ appContext, mobileNavOpen }: any) {

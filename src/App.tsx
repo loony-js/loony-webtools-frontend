@@ -16,6 +16,7 @@ import Navbar from "./navbar/TopNavbar"
 import { AuthContext, AuthStatus } from "./context/AuthContext"
 import AppContext from "./context/AppContext"
 import SipClient from "./sip"
+import JWT from "./jwt"
 
 const Home = lazy(() => import("./Home"))
 const Aegis = lazy(() => import("./aegis"))
@@ -98,6 +99,7 @@ export const AppRoute = ({
               <Route path="/videoCall" element={<WebRTCChat />} />
               <Route path="/webTemplates" element={<WebTemplates />} />
               <Route path="/sipClient" element={<SipClient />} />
+              <Route path="/jwt" element={<JWT />} />
             </Routes>
           </Suspense>
         </div>
