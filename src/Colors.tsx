@@ -271,8 +271,8 @@ const tailwindColors = {
 const baseColors = {
   black: "#000000",
   white: "#ffffff",
-  current: "currentColor",
-  transparent: "transparent",
+  // current: "currentColor",
+  // transparent: "transparent",
 }
 
 export default function TailwindColorPicker() {
@@ -282,9 +282,9 @@ export default function TailwindColorPicker() {
   const allColors = { ...tailwindColors, ...baseColors }
 
   return (
-    <div className="p-6 max-w-7xl mx-auto grid gap-6">
+    <div className="p-6 max-w-7xl mx-auto grid gap-6 text-text-primary">
       <h1 className="text-2xl font-semibold">
-        Complete Tailwind‑Style Color Picker 🌈
+        Complete Tailwind-Style Color Picker
       </h1>
       {/* Tailwind's main color scale families */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
@@ -318,7 +318,7 @@ export default function TailwindColorPicker() {
       </div>
       ---
       {/* Base colors */}
-      <div className="p-4 rounded-2xl shadow-xl bg-white border border-gray-100">
+      <div className="p-4 rounded-2xl shadow-xl border border-gray-100">
         <h2 className="text-lg font-bold capitalize mb-3">Base Colors</h2>
         <div className="flex flex-wrap gap-4">
           {Object.entries(baseColors).map(([name, hex]) => (

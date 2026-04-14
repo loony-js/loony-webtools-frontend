@@ -158,14 +158,14 @@ function Login({ authContext }: { authContext: AuthContextType }) {
                   onChange={handleChange}
                   onBlur={() => handleBlur("password")}
                   className={`
-                    w-full px-4 py-2 border rounded-md 
+                    w-full px-4 py-2 border rounded-md
                     focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent
                     ${
                       touched.password && errors.password
                         ? "border-red-500 dark:border-red-500"
                         : "border-gray-300 dark:border-gray-600"
                     }
-                    text-gray-900 dark:text-white
+                    text-text-primary
                     pr-10
                   `}
                   autoComplete="current-password"
