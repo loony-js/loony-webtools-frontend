@@ -58,24 +58,25 @@ const TopNavbar = ({
       <div className="flex justify-between mx-auto">
         {/* Left Section */}
         <div className="flex items-center gap-4">
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden text-[#8b949e] hover:text-white transition-colors"
-            aria-label="Menu"
-          >
-            <Menu size={24} />
-          </button>
+          <div className="w-72">
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden text-[#8b949e] hover:text-white transition-colors"
+              aria-label="Menu"
+            >
+              <Menu size={24} />
+            </button>
 
-          {/* Logo */}
-          <Link
-            to="/"
-            className="text-text-primary hover:text-[#58a6ff] transition-colors"
-          >
-            {/* <Code2 size={32} /> */}
-            Webtools
-          </Link>
-
+            {/* Logo */}
+            <Link
+              to="/"
+              className="text-text-primary hover:text-[#58a6ff] transition-colors"
+            >
+              {/* <Code2 size={32} /> */}
+              Webtools
+            </Link>
+          </div>
           {/* Search Bar */}
           <form onSubmit={handleSearch} className="hidden lg:block">
             <div className="relative">
@@ -88,7 +89,7 @@ const TopNavbar = ({
                 placeholder="Search or jump to..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="bg-layout-navbar border border-layout-border rounded-md pl-10 pr-4 py-1.5 w-80 text-sm focus:outline-none focus:border-[#58a6ff] focus:ring-1 focus:ring-[#58a6ff] text-[#c9d1d9] placeholder-[#8b949e] transition-all"
+                className="bg-layout-navbar border border-layout-border rounded-md pl-10 pr-4 py-1.5 w-120 text-sm focus:outline-none focus:border-[#58a6ff] focus:ring-1 focus:ring-[#58a6ff] text-[#c9d1d9] placeholder-[#8b949e] transition-all"
               />
               <kbd className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-[#8b949e] bg-[#21262d] px-1.5 py-0.5 rounded border border-layout-border hidden sm:block">
                 /

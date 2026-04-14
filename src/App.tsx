@@ -1,25 +1,23 @@
-import { useState, Suspense, lazy } from "react"
-import { Routes, Route } from "react-router"
-
 // import Aegis from "./aegis/index"
-import Login from "./auth/Login"
-import Signup from "./auth/Signup"
 // import VoiceStreaming from "streaming/VoiceStreaming"
 // import Algorithms from "./algorithms/index"
 // import Home, { LoginHome } from "./Home"
-
-import Navbar from "./navbar/TopNavbar"
-import { AuthContext, AuthStatus } from "./context/AuthContext"
 // import Trading from "Trading"
-import AppContext from "./context/AppContext"
-import LoginDesktopLeftNavbar from "./navbar/LoginLeftNavbar"
-import SipClient from "./sip"
+// import LoginDesktopLeftNavbar from "./navbar/LoginLeftNavbar"
 // import HSLPaletteGenerator from "Colors"
 // import WebRTCChat from "./WebRTCChat"
+// const LoginHome = lazy(() => import("./LoginHome"))
 
-// Lazy-load all your route components
+import { useState, Suspense, lazy } from "react"
+import { Routes, Route } from "react-router"
+import Login from "./auth/Login"
+import Signup from "./auth/Signup"
+import Navbar from "./navbar/TopNavbar"
+import { AuthContext, AuthStatus } from "./context/AuthContext"
+import AppContext from "./context/AppContext"
+import SipClient from "./sip"
+
 const Home = lazy(() => import("./Home"))
-const LoginHome = lazy(() => import("./LoginHome"))
 const Aegis = lazy(() => import("./aegis"))
 const VoiceStreaming = lazy(() => import("./streaming/VoiceStreaming"))
 const Trading = lazy(() => import("./Trading"))

@@ -130,7 +130,6 @@ export default function DetailPanel({ entry, onEdit, onDelete }) {
 
   const [showPassword, setShowPassword] = useState(false)
   const [showMPassword, setShowMPassword] = useState(false)
-  const [master_password, setMasterPassword] = useState("")
   const [decrypted_password, setDecryptedPassword] = useState("")
   const [error, setError] = useState("")
   const [errors, setErrors] = useState({})
@@ -142,7 +141,10 @@ export default function DetailPanel({ entry, onEdit, onDelete }) {
         master_password: form.mpassword,
       })
         .then((res) => {
-          onDelete(entry)
+          if (res.data && res.data.password) {
+            setDecryptedPassword(res.data.password)
+            setError("")
+          }
         })
         .then(() => {
           // onDecryptFinish()
@@ -161,10 +163,7 @@ export default function DetailPanel({ entry, onEdit, onDelete }) {
         master_password: form.mpassword,
       })
         .then((res) => {
-          if (res.data && res.data.password) {
-            setDecryptedPassword(res.data.password)
-            setError("")
-          }
+          onDelete(entry)
         })
         .then(() => {
           // onDecryptFinish()
