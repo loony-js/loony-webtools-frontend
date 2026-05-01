@@ -1,22 +1,38 @@
 import axios from "axios"
 
-const { HTTPS_AUTH_URL, HTTP_AUTH_URL, HTTPS_API_URL, HTTP_API_URL, HTTPS } =
-  process.env
+const {
+  AUTH_HTTP_PORT,
+  AUTH_HTTPS_PORT,
+  NODE_HTTP_PORT,
+  NODE_HTTPS_PORT,
+  NODE_ENV,
+} = process.env
 
-const authApiBaseUrl = HTTPS === "true" ? HTTPS_AUTH_URL : HTTP_AUTH_URL
-const apiBaseUrl = HTTPS === "true" ? HTTPS_API_URL : HTTP_API_URL
+// AUTH
+const AUTH_BASE_URL =
+  NODE_ENV === "production"
+    ? `https://localhost:${AUTH_HTTPS_PORT}`
+    : `http://localhost:${AUTH_HTTP_PORT}`
+// API
+const API_BASE_URL =
+  NODE_ENV === "production"
+    ? `https://localhost:${NODE_HTTPS_PORT}`
+    : `http://localhost:${NODE_HTTP_PORT}`
 
-console.log(authApiBaseUrl, apiBaseUrl)
+console.log({
+  AUTH_BASE_URL,
+  API_BASE_URL,
+})
 
 const authHttpClient = axios.create({
-  baseURL: authApiBaseUrl,
+  baseURL: AUTH_BASE_URL,
   timeout: 10000,
   headers: { "Content-Type": "application/json" },
   withCredentials: true,
 })
 
 const apiHttpClient = axios.create({
-  baseURL: apiBaseUrl,
+  baseURL: API_BASE_URL,
   timeout: 10000,
   headers: { "Content-Type": "application/json" },
   withCredentials: true,

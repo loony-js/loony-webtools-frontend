@@ -5,8 +5,7 @@
   "scripts": {
     "build": "rsbuild build",
     "check": "biome check --write",
-    "dev:http": "HTTPS=false rsbuild dev --open",
-    "dev:https": "HTTPS=true rsbuild dev --open",
+    "dev": "rsbuild dev --open",
     "frontend": "rsbuild dev --open",
     "backend": "node ./src/api.tsx",
     "format": "prettier --write .",
